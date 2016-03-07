@@ -1,0 +1,641 @@
+@charset "utf-8";
+
+
+主色调\字体\深色按钮border	47C04B
+按钮浅色				E5F5E6
+按钮浅色border			D3F5D5
+按钮浅色hover			CEFACF
+按钮深色hover			3CB343
+
+
+/* CSS Document */
+
+
+
+
+
+
+.u-see100 a:hover{color: #47C04B;}
+.list-block .name a:hover {
+	color:#47C04B;
+}
+a.u-now {
+background: #47C04B;
+color: #fff;
+}
+.w-goods-ing a:hover{
+background: #3CB343;
+color: #fff;
+}
+.w-goods-ing .shop_buttom1 a {
+width: 60px;
+background: #ffac4a;
+}
+.get_ready .title p i,.new_goods .title p i,.lottery_show .title p i ,.goods_hot .title p i{
+	border-left: 4px solid #47C04B;
+}
+.Immediate span a:hover {
+	text-decoration:underline;
+}
+.ng-goods-detail .consume-now {
+  background-color: #47C04B;
+  color: #fff;
+}
+.ng-goods-detail .consume-now:hover {
+  background-color: #3CB343;
+}
+.ng-goods-detail .select-wrapper li {
+  color: #47C04B;
+}
+.ng-goods-detail .ad-title:hover {
+  color: #47C04B;
+}
+.ng-goods-buy .select-all:hover {
+  color: #47C04B;
+  border-color: #47C04B;
+}
+.ng-goods-buy .ng-buy-nav .b-line {
+  background-color: #47C04B;
+}
+.ng-goods-img .ng-share-out .sc:hover, .ng-goods-img .ng-share-out .sc.current {
+  color: #47C04B;
+  border-color: #47C04B;
+}
+.ng-goods-img .ng-share-out .fx.current, .ng-goods-img .ng-share-out .fx:hover {
+  border-color: #47C04B;
+  color: #47C04B;
+}
+.shop_process h5 a.f-list-jiesuan {
+	color: #fff;
+	background: #47C04B;
+}
+.next-period dd.have-in a {
+color: #47C04B;
+border: 1px solid #eee;
+}
+.next-period dd.have-in a:hover {
+color: #47C04B;
+border: 1px solid #47C04B;
+}
+.m-lott-menu li a:hover, .m-lott-menu li.current a {
+color: #47C04B;
+}
+.m-lottery-list .u-comm-info dd.z-lott-btn span a {
+border: 1px solid #47C04B;
+color: #47C04B;
+}
+.m-lottery-list ul:hover{
+border: 1px solid #47C04B;
+-moz-box-shadow: 3px 3px 3px #d8d8d8;
+-webkit-box-shadow: 3px 3px 3px #d8d8d8;
+box-shadow: 3px 3px 3px #d8d8d8;
+}
+.help-nav ul li a:hover{
+	color: #47C04B;
+}
+.ng-goods-buy .list .buy-num {
+  color: #47C04B;
+}
+.line-time .u-progress .pging {
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#81E985',endColorStr='#47C04B',gradientType='1');
+	background: -moz-linear-gradient(0deg,#81E985,#47C04B);
+	background: -webkit-gradient(linear,0% 0,100% 0,from(#81E985),to(#47C04B));
+	background: -ms-linear-gradient(left,#81E985 0,#47C04B 100%);
+	background: -o-linear-gradient(0deg,#81E985,#47C04B);
+	animation: none;
+	-webkit-animation: none;
+	-moz-animation: none;
+	-ms-animation: none;
+	-o-animation: none;
+}
+.line-time .now-has span {
+  color: #47C04B;
+}
+.ng-result-img .result-more:hover {
+  color: #47C04B;
+  border-color: #47C04B;
+}
+.ng-result-detail .result-main {
+  background-color: #E5F5E6;
+}
+.ng-result-detail .result-con-info {
+  background-color: #fff;
+  border: 1px solid #D3F5D5;
+  color: #949494;
+}
+.ng-result-detail .result-con-info .r-num {
+  color: #47C04B;
+}
+.ng-result-detail .result-con-code {
+  background-color: #fff;
+  border: 1px solid #D3F5D5;
+}
+.ng-result-detail .code-num {
+  color: #47C04B;
+}
+.ng-data-inner .ng-data-step {
+  background-color: #E5F5E6;
+}
+.ng-data-inner .ng-data-detail {
+  border: 1px solid #D3F5D5;
+}
+.ng-data-inner .ng-data-step .title {
+  color: #47C04B;
+}
+.ng-data-inner .ng-data-step .step-inner li {
+  color: #47C04B;
+  border: 1px solid #D3F5D5;
+  background-color: #fff;
+}
+.ng-data-inner .ng-data-step .step-inner p {
+  color: #47C04B;
+}
+.ng-data-inner .ng-data-step .step-inner .s-r5 {
+  border: 2px solid #47C04B;
+}
+.ng-data-inner .ng-table-wrapper {
+  border-top: 1px solid #D3F5D5;
+}
+.ng-data-inner .ng-table-ul .code {
+  color: #47C04B;
+}
+.ng-data-inner .ng-table-wrapper .ng-see-more {
+  background-color: #D3F5D5;
+  color: #47C04B;
+}
+.ng-data-inner .ng-table-wrapper .ng-see-more span {
+  color: #47C04B;
+}
+.ng-data-inner .ng-table-ul .pro a:hover {
+  color: #47C04B;
+}
+.ng-pt-inner li a:hover {
+  color: #47C04B;
+}
+.ng-pt-inner li.current a {
+  color: #fff;
+  background-color: #47C04B;
+}
+.Single_Content .ng-share-con .talk-wrap a:hover {
+  color: #47C04B;
+}
+.message .smile a:hover{
+	color: #47C04B;
+}
+.autoOld p.dsjx,.autoRule p.dsjx{color:#47C04B;}
+.autoOld .autoOldMore{color:#47C04B;}
+.autoOld .autoOldMore a{color:#47C04B;}
+.detailAddress ul.liBg {
+	background:#E5F5E6;
+}
+#wuliu_select{background-color:#47C04B;}	
+.add input{color:#fff;background:#47C04B;}
+.W-left {
+	width:920px;
+	padding:19px;
+	border:2px solid #47C04B;
+}
+.process_con {
+	border:1px solid #D3F5D5;
+	background:#E5F5E6;
+}
+.process_con span em {
+color: #D3F5D5;
+}
+.process_con span s {
+	color:#E5F5E6;
+}
+.process_con a {
+	color:#47C04B;
+}
+a.M126:hover,a.M163:hover,a.Mmsn:hover,a.Msohu:hover,a.Mgmail:hover,a.Msina:hover,a.Myahoo:hover {
+	border:1px solid #47C04B;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*border*/
+.b_red{border:solid 1px #f60;}
+.br_red{border-right:solid 1px #f60;}
+.b_gray{border: 1px solid #DFDFDF;}
+.bt_gray{border-top:solid 1px #DFDFDF}
+.bb_gray{border-bottom:solid 1px #DFDFDF}
+.br_gray{border-right:solid 1px #DFDFDF}
+.bl_gray{border-left:solid 1px #DFDFDF}
+.bb_eee{border-bottom:solid 1px #eee;}
+.b_pink{border:Solid 1px #D3F5D5;}
+.R-grtit h3{border-bottom:1px solid #47C04B;}
+.button05{border:1px solid #47C04B;}
+
+.b2_red{border:solid 2px #47C04B;}
+.bt2_red{border-top:solid 2px #47C04B;}
+.bt2_green{border-top:solid 2px #009999;}
+.bt2_orange{border-top:solid 2px #47C04B;}
+.bt_red{border-top:solid 1px #47C04B}
+.bb2_red{border-bottom:solid 2px #47C04B}
+.b_red1{border:solid 1px #47C04B;}
+.b_red2{border: 1px solid #eed7d9;}
+.bb_pink{border-bottom: 1px solid #F9D8DD;}
+.button07{background:#47C04B;border:1px solid #47C04B;}
+.groups-head{border:1px solid #E9E9E9;border-top:1px solid #47C04B;}
+.Topic-tab li.tabcur {border:1px solid #47C04B;}
+.Topic-tab{border-bottom:1px solid #47C04B;}
+/*background*/
+.bg_red{background: #47C04B;}
+.bg_pink{background: #E5F5E6;}
+.bg_orange{background: #47C04B;}
+.bg_yellow{background: #FFF60E;border: 1px solid #FFF60E;}
+.bg_orangelight{background:#ff7c21}
+.text_tel .orangebut{background:#47C04B;}
+.text_email .orangebut{background:#47C04B;}
+.button05{background:#47C04B;}
+.head_nav .nav_center{
+	background: #47C04B;
+}
+.head_nav .nav_list {
+	background: #47C04B;
+}
+.head_search .search_submit {
+	background: #47C04B;
+}
+.g_list ul li:hover {
+	border:1px solid #47C04B;
+	-moz-box-shadow:3px 3px 3px #d8d8d8;
+	-webkit-box-shadow:3px 3px 3px #d8d8d8;
+	box-shadow:3px 3px 3px #d8d8d8;	
+}
+.w-shop-ing a.w-shop-inga{
+	background: #47C04B;
+	color: #fff;
+}
+
+
+
+
+
+/*color*/
+.c_red{color: #47C04B;}
+.c_black{color:#000;}
+.c_yellow{color:#FF9600;}
+.c_green{color:#009999;}
+.c_orange{color:#47C04B}
+.orange{color:#47C04B}
+.c_gray{color:#bbb;}
+.c_blue{color:#43b6ff;}
+.rmb{color:#f00}
+.m-joinNum span.tnum {color:#47C04B}
+.blue{color:#2af}
+.gray01 {color: #666;}
+.gray02 {color: #999;}
+.gray03 {color: #bbb;}
+.gray3 {color: #333;}
+.bluebut{background: #43b6ff;border: 1px solid #43b6ff;}
+.login_Email_but{background: #47C04B;border: 1px solid #47C04B;}
+.m-ser #pServerTime{background: #47C04B;color: #fff;padding: 5px;}
+.Progress-bar .Pro-bar-li li.P-bar01 em {
+	color:#47C04B;
+}
+
+/*hover*/
+a:hover{color:#47C04B}
+.m_all_sort ul li:hover{border:solid 1px #47C04B}
+.m_all_sort ul li a:hover{color:#47C04B}
+.m_all_sort a.more:hover{border:solid 1px #47C04B;color:#47C04B;}
+.head_nav .nav_list li a:hover{background:#fff;color:#47C04B;}
+.head_nav {background:#47C04B;}
+.num a:hover{background:#47C04B}
+.m_newsML a:hover{color:#47C04B}
+.prin_pp ul li:hover{border-top:solid 1px #47C04B;}
+.goods_hotR ul li .shop_buttom a:hover{background:#47C04B}
+.get_ready ul li .shop_buttom a:hover{background:#47C04B}
+.hot_list .list-block:hover,.get_ready .list-block:hover{
+	border:1px solid #47C04B;
+	-moz-box-shadow:3px 3px 3px #d8d8d8;
+	-webkit-box-shadow:3px 3px 3px #d8d8d8;
+	box-shadow:3px 3px 3px #d8d8d8;
+	z-index:2;
+}
+.catalog .fr a:hover {
+border: solid 1px #47C04B;
+color:#47C04B;
+text-decoration: none;
+}
+.head_top ul li a:hover{color:#47C04B}
+.get_ready .list-block:hover{
+border:solid 1px #47C04B;
+height: 400px;
+z-index: 99;
+margin: -1px -1px 0 0;
+position: relative;
+}
+
+.get_ready .list-blocka:hover{
+border:solid 1px #47C04B;
+height: 345px;
+z-index: 99;
+margin: -1px -1px 0 0;
+position: relative;
+}
+.new_goods .list-block:hover{
+height: 300px;
+z-index: 99;
+margin: -1px -1px 0 0;
+position: relative;
+left:0;
+top:-1px;
+border:1px solid #47C04B;
+overflow:hidden;
+-moz-box-shadow:3px 3px 3px #d8d8d8;
+-webkit-box-shadow:3px 3px 3px #d8d8d8;
+box-shadow:3px 3px 3px #d8d8d8;
+}
+.new_goods .check_out a:hover{color:#009999;}
+.lottery_show .check_out a:hover{color:#47C04B;}
+.singleR a p:hover{color:#47C04B;}
+.topicAllL ul.column li h1:hover,.topicAllL ul.column li a:hover{color:#47C04B}
+.topicAllL ul.columns .idea a:hover{background:#47C04B;color:#fff}
+.g-guide dd a:hover {
+color: #47C04B;
+text-decoration: underline;
+}
+.list_class dd a:hover {
+color: #47C04B;
+}
+.list_Sort dd a:hover {
+color: #47C04B;
+border:Solid 1px #47C04B;
+}
+#Page_Ul li a:hover {
+background: #47C04B;
+border: 1px solid #47C04B;
+color: #FFF;
+text-decoration: none;
+}
+.show_Period .Period_list li a:hover {color: #47C04B;}
+.Det_button .Det_Shopbut:hover,.My_RecordReg a.My_Signbut:hover {
+background: #47C04B;
+color: #fff;
+text-decoration: none;
+}
+.Det_button .Det_Cart:hover, .w-goods-ing .shop_buttom1 a:hover {
+  background: #F49B31;
+  color: #fff;
+  text-decoration: none;
+}
+.My_RecordReg a.My_Regbut:hover {background:#14A1F9;text-decoration:none;}
+.jcarousel-clip ul li:hover{border:Solid 1px #47C04B}
+.Result_LConduct .Result_LConductBut:hover{background:#47C04B}
+.share-Conduct .getbut-a:hover{background:#47C04B;color:#fff}
+.autoOld .autoOldMore a:hover ,.autoOld li.pInfo dt.title a:hover {color: #47C04B;}
+.publishCen li.Cursor:hover {border: solid 1px #47C04B;}
+.details .details-A:hover {text-decoration: none;background: #FCC0CA;}
+.autoOld ul.autoOldlist:hover{transition: all 0.8s;border:solid 1px #47C04B;}
+.m_app ul li a:hover{color:#47C04B;}
+.button07:hover{background:#EF5C74;}
+.goods_share_listC .share_list_content:hover{border:1px solid #47C04B;transition: all 0.6s;}
+.text_tel .orangebut:hover{background:#E01F3F}
+.text_email .orangebut:hover{background:#E01F3F;}
+.login_Email_but:hover{background:#E01F3F}
+.bg_pink .bluebut:hover{color:#fff;background:#E01F3F;}
+.message .much i:hover{background-position:0px -84px;}
+.message .smile i:hover{background-position:0px -30px;}
+.message .smile:hover{color:#47C04B;cursor:pointer;}
+.much a:hover{color:#47C04B;}
+.button05:hover{background:#E01F3F;}
+
+.last li a:hover{
+	background: #47C04B;
+	color:#fff;
+}
+
+.gray9 {
+color: #999;
+}
+
+
+
+.Progress-bar p span{
+background: #47C04B;
+border: 1px solid #47C04B;
+}
+.Progress-bar .Pro-bar-li li.P-bar01 em {
+	color:#47C04B;
+}
+.Progress-bar .Pro-bar-li li.P-bar02 em {
+	color:#777;
+}
+.Progress-bar .Pro-bar-li li.P-bar03 em {
+	color:#14A8E4;
+}
+.per-info li.account-money .money-red {
+	color:#47C04B;
+}
+.service-btn{
+	color:#fff;	
+	background:#47C04B;
+}
+.sidebar-nav a:hover {
+	color:#fff;
+	background:#47C04B;
+}
+.sid-service .tel {
+	color:#47C04B;
+}
+.subMenu a.current {
+	background:#47C04B;
+	color:#fff;
+}
+.subMenu a {
+	color:#47C04B;
+}
+.subMenu a:hover {
+	color:#2DAA30;
+}
+.subMenu{
+	border-bottom:#47C04B 1px solid;
+}
+.savePhoto input{
+	background:#47C04B;
+	border:#47C04B 1px solid;
+	color:#fff;
+}
+.info table td a {
+	color:#47C04B;
+}
+.share_Curtit h1{
+	color:#47C04B;
+}
+.Result_LConduct dt{
+	border: 1px solid #E5F5E6;
+	background: #E5F5E6;
+	color: #47C04B;
+}
+.Result_Progress-bar p span{
+	border: 1px solid #47C04B;
+	background: #47C04B;
+}
+.ygRecord div.RecordOnehundred h4{
+	background: #47C04B;
+	color: #FFF;
+}
+
+.list_class dd a:hover {
+color: #47C04B;
+}
+.list_Sort dd a:hover {
+color: #47C04B;
+}
+.Immediate {
+	color:#999;
+	border:1px solid #D3F5D5;
+	background:#E5F5E6;
+}
+.Immediate b {
+	background:#47C04B;
+	color:#fff;
+}
+.Immediate em {
+	color:#47C04B;
+}
+.Det_button .Det_Shopbut {
+border: 1px solid #84CA92;
+border-bottom: 1px solid #84CA92;
+background: #47C04B;
+color: #fff;
+}
+.Det_button .Det_Cart {
+border: 1px solid #D3F5D5;
+background: #E5F5E6;
+color: #47C04B;
+}
+.DetailsT_TitP li.DetailsTCur {
+color: #47C04B;
+border-top: 3px solid #47C04B;
+background: #fff;
+}
+.auto-nav {
+background: #6ADA6E;
+border-bottom: 3px solid #47C04B;
+}
+.auto-nav ul li.autoCur {
+background: #47C04B;
+color: #fff;
+}
+.auto-nav ul li.autoCur em {
+color: #CEFACF;
+}
+.auto-nav ul li {
+background: #E5F5E6;
+color: #47C04B;
+}
+.auto-nav ul li em {
+color: #47C04B;
+}
+.showCon .autolistCur{background:#3CB343;}
+.showCon .autolist{background:#47C04B;}
+.showCon .autolist .syTime{color:#fff;}
+.showCon .autolist .syTime em{color:#47C04B;background:#fff;}
+.showCon .ashowM a.nowBtn{background:#47C04B;color:#fff;}
+.autoOld{background:#CEFACF;}
+.autoOld p.dsjx, .autoRule p.dsjx{color:#47C04B;}
+.autoOld .autoOldMore a:hover{color:#47C04B;}
+.autoOld .autoOldMore a {
+color: #47C04B;
+}
+.autoOld .autoOldMore a {
+color: #47C04B;
+font-size: 20px;
+}
+.autoRule{background:#CEFACF;}
+.showCon .name a:hover {
+color: #47C04B;
+}
+.new_msg,.prompt {
+	background:#E5F5E6;
+	border:#D3F5D5 1px solid;
+}
+.Validform_error{
+	background-color:#E5F5E6;
+}
+
+.login .login_bg .login_box h3 {
+	color: #47C04B;
+}
+.yg_record_goods a.fl-img:hover img {
+	border:1px solid #47C04B;
+}
+.ygRecord a:hover, .ygRecord div a:hover, .ygRecord ul li.name a:hover, .ygRecord div.RecordOnehundred ul li.name a:hover {
+color: #47C04B;
+}
+.help-nav h3{color:#47C04B;border-bottom:2px solid #47C04B;}
+.help-nav ul li a.cur1 {color: #47C04B;}
+.help-nav ul li a.cur1 b {background: #47C04B;}
+.help-contact .Customer{	background:#47C04B;color:#fff;}
+.help-contact .tel {color:#47C04B;}
+.ygRecord div.RecordOnehundred ul {
+border-bottom: 1px solid #84CA92;
+background: #FFFEF1;
+}
+.Announced_But {background: #D40B2C;color: #FC0;}
+.Announced_FrameCode li{color: #47C04B;}
+.ygRecord .RecordOnehundred .ResultBox span{color: #780606;}
+.shop_process ul.process li.first_step {
+	color:#fff;
+	background:#47C04B;
+}
+.shop_process .submitted ul.order li.ts p.right span{	color:#47C04B;}
+.num a.shop_last_all:hover{
+background:#47C04B;
+color:#fff;
+}
+dl.add dd input.amount {
+	background:#E5F5E6;
+	border:#d8d8d8 1px solid;
+	color:#333;
+}
+.login_process li.login_processCur {
+	color:#47C04B;
+}
+.login_SendoutbutClick {
+	background:#47C04B;
+	border:1px solid #47C04B;
+	color:#fff;
+}
+.login_Email_but:hover {
+	background:#3CB343;
+	color:#fff;
+}
+.ygRecord ul.Record_content li.name a,.ygRecord ul.Record_contents li.name a,.ygRecord div.RecordOnehundred ul li.name a{line-height:17px;color:#4a91d4;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

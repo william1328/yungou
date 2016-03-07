@@ -1,0 +1,308 @@
+{wc:fun:js("jquery.cmsapi")}
+{wc:fun:js("jquery.pageDialog")}
+{wc:templates "index.header_top"}
+<script type="text/javascript">
+	$.YunCmsApi.SetTopStyle({
+		"Title":"个人中心",
+		"Home":true,
+		"Shop":true
+	});
+</script>
+<section class="clearfix g-member">
+    <div class="clearfix m-round m-name">
+		<div class="fl f-Himg">
+            {wc:if $user=login('bool')}
+			<a href="{WEB_PATH}/uname/{wc:fun:idjia($user['uid'])}" class="z-Himg">
+			<img src="{G_UPLOAD_PATH}/{wc:fun:Getuserimg($user['uid'])}" border=0/></a>
+			{wc:if:end}
+			</a>
+			<span class="z-class-icon0{wc:$dengji_1['groupid']} gray01"><s></s>{wc:$dengji_1['name']}</span>
+		</div>
+		<div class="m-name-info">
+		<p class="u-name">
+		<b class="z-name gray01" id="nickname">
+		{wc:if $member['username']!=null}
+		{wc:$member['username']}
+		{wc:elseif $member['mobile']!=null}
+		{wc:$member['mobile']}
+		{wc:else}
+		{wc:$member['email']}
+		{wc:if:end}
+		</b>
+		
+		<em id="play">(
+		{wc:if $member['mobile']!=null}
+		{wc:$member['mobile']}
+		{wc:else}
+		{wc:$member['email']}
+		{wc:if:end}
+		)</em>
+		</p>
+			<ul class="clearfix u-mbr-info"><li>可用{wc:fun:L('cgoods.credit')} <span class="orange">{wc:$member['score']}</span></li>
+				<li>经验值 <span class="orange">{wc:$member['jingyan']}</span></li>
+				<li class="cz">可用{wc:fun:L('cgoods.currency')}<span class="orange">{wc:$member['money']}</span>
+				<a href="{WEB_PATH}/member/account/userrecharge" class="fr z-Recharge-btn">去充值</a></li>
+			</ul>
+		</div>
+	</div>
+    <div class="m-round m-member-nav">
+	    <ul id="ulFun">
+		    <li id="bty"><a href="#"><b class="z-arrow"></b>修改头像</a></li>
+		    <li onclick="nickname();"><a href="javascript:;"><b class="z-arrow"></b>修改昵称</a></li>		
+		    <li><a href="{WEB_PATH}/member/home/userpassword"><b class="z-arrow"></b>修改密码</a></li>
+	    </ul>
+    </div>
+</section>
+	<input style="display:none" id="btn" type="file" accept="image/*;capture=camera" class="input">
+<style>
+.play{display:none;}
+.xgnc{
+	border:1px solid #FF6600;
+	padding:3px 5px;
+	border-radius:5px;
+	background-color:#FF6600;
+	color:#fff;
+}
+</style>
+<!--修改头像开始-->
+<script> 
+$("#bty").click(function (){
+	$("#btn").click();
+})
+
+
+document.addEventListener('DOMContentLoaded', init, false); 
+ 
+function init() { 
+	var u = new UploadPic(); 
+	u.init({ 
+	input: document.querySelector('.input'), 
+	callback: function (base64) { 
+	$.ajax({ 
+		url:'{WEB_PATH}/member/home/userphotos', 
+		data:{str:base64,type:this.fileType}, 
+		type:'post', 
+		dataType:'json', 
+		success:function(i){ 
+			$.PageDialog.ok("修改成功");
+			setTimeout(location.reload(), 5000);
+			
+			} 
+			}) 
+		}, 
+	loading: function () { 
+	 
+	} 
+	});
+} 
+ 
+function UploadPic() { 
+	this.sw = 0; 
+	this.sh = 0; 
+	this.tw = 0; 
+	this.th = 0; 
+	this.scale = 0; 
+	this.maxWidth = 0; 
+	this.maxHeight = 0; 
+	this.maxSize = 0; 
+	this.fileSize = 0; 
+	this.fileDate = null; 
+	this.fileType = ''; 
+	this.fileName = ''; 
+	this.input = null; 
+	this.canvas = null; 
+	this.mime = {}; 
+	this.type = ''; 
+	this.callback = function () {}; 
+	this.loading = function () {}; 
+} 
+ 
+UploadPic.prototype.init = function (options) { 
+this.maxWidth = options.maxWidth || 800; 
+this.maxHeight = options.maxHeight || 600; 
+this.maxSize = options.maxSize || 3 * 1024 * 1024; 
+this.input = options.input; 
+this.mime = {'png': 'image/png', 'jpg': 'image/jpeg', 'jpeg': 'image/jpeg', 'bmp': 'image/bmp'}; 
+this.callback = options.callback || function () {}; 
+this.loading = options.loading || function () {}; 
+ 
+this._addEvent(); 
+}; 
+ 
+/** 
+* @description 绑定事件 
+* @param {Object} elm 元素 
+* @param {Function} fn 绑定函数 
+*/ 
+UploadPic.prototype._addEvent = function () { 
+var _this = this; 
+ 
+function tmpSelectFile(ev) { 
+_this._handelSelectFile(ev); 
+} 
+ 
+this.input.addEventListener('change', tmpSelectFile, false); 
+}; 
+ 
+/** 
+* @description 绑定事件 
+* @param {Object} elm 元素 
+* @param {Function} fn 绑定函数 
+*/ 
+UploadPic.prototype._handelSelectFile = function (ev) { 
+var file = ev.target.files[0]; 
+ 
+this.type = file.type 
+ 
+// 如果没有文件类型，则通过后缀名判断（解决微信及360浏览器无法获取图片类型问题） 
+if (!this.type) { 
+this.type = this.mime[file.name.match(/\.([^\.]+)$/i)[1]]; 
+} 
+ 
+if (!/image.(png|jpg|jpeg|bmp)/.test(this.type)) { 
+alert('选择的文件类型不是图片'); 
+return; 
+} 
+
+if (file.size > this.maxSize) { 
+alert('选择文件大于' + this.maxSize / 1024 / 1024 + 'M，请重新选择'); 
+return; 
+} 
+ 
+this.fileName = file.name; 
+this.fileSize = file.size; 
+this.fileType = this.type; 
+this.fileDate = file.lastModifiedDate; 
+ 
+this._readImage(file); 
+}; 
+ 
+/** 
+* @description 读取图片文件 
+* @param {Object} image 图片文件 
+*/ 
+UploadPic.prototype._readImage = function (file) { 
+var _this = this; 
+ 
+function tmpCreateImage(uri) { 
+_this._createImage(uri); 
+} 
+ 
+this.loading(); 
+ 
+this._getURI(file, tmpCreateImage); 
+}; 
+ 
+/** 
+* @description 通过文件获得URI 
+* @param {Object} file 文件 
+* @param {Function} callback 回调函数，返回文件对应URI 
+* return {Bool} 返回false 
+*/ 
+UploadPic.prototype._getURI = function (file, callback) { 
+var reader = new FileReader(); 
+var _this = this; 
+ 
+function tmpLoad() { 
+// 头不带图片格式，需填写格式 
+var re = /^data:base64,/; 
+var ret = this.result + ''; 
+
+if (re.test(ret)) ret = ret.replace(re, 'data:' + _this.mime[_this.fileType] + ';base64,'); 
+ 
+callback && callback(ret); 
+} 
+ 
+reader.onload = tmpLoad; 
+ 
+reader.readAsDataURL(file); 
+ 
+return false; 
+}; 
+ 
+/** 
+* @description 创建图片 
+* @param {Object} image 图片文件 
+*/ 
+UploadPic.prototype._createImage = function (uri) { 
+var img = new Image(); 
+var _this = this; 
+ 
+function tmpLoad() { 
+_this._drawImage(this); 
+} 
+ 
+img.onload = tmpLoad; 
+
+img.src = uri; 
+}; 
+ 
+/** 
+* @description 创建Canvas将图片画至其中，并获得压缩后的文件 
+* @param {Object} img 图片文件 
+* @param {Number} width 图片最大宽度 
+* @param {Number} height 图片最大高度 
+* @param {Function} callback 回调函数，参数为图片base64编码 
+* return {Object} 返回压缩后的图片 
+*/ 
+UploadPic.prototype._drawImage = function (img, callback) { 
+this.sw = img.width; 
+this.sh = img.height; 
+this.tw = img.width; 
+this.th = img.height; 
+ 
+this.scale = (this.tw / this.th).toFixed(2); 
+ 
+if (this.sw > this.maxWidth) { 
+this.sw = this.maxWidth; 
+this.sh = Math.round(this.sw / this.scale); 
+} 
+ 
+if (this.sh > this.maxHeight) { 
+this.sh = this.maxHeight; 
+this.sw = Math.round(this.sh * this.scale); 
+} 
+ 
+this.canvas = document.createElement('canvas'); 
+var ctx = this.canvas.getContext('2d'); 
+ 
+this.canvas.width = this.sw; 
+this.canvas.height = this.sh; 
+ 
+ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, this.sw, this.sh); 
+ 
+this.callback(this.canvas.toDataURL(this.type)); 
+ 
+ctx.clearRect(0, 0, this.tw, this.th); 
+this.canvas.width = 0; 
+this.canvas.height = 0; 
+this.canvas = null; 
+}; 
+</script>
+<!--修改头像结束 -->
+
+<!--修改昵称start-->
+<script>
+	function nickname(){
+		var name=$("#nickname").text();
+		var str='';
+			str+='<form class="registerform" method="post" action="">';
+			str+='<table border="0" cellpadding="0" cellspacing="8">';
+			str+='	<tbody>';
+			str+='	<tr>';
+			str+='		<td>';
+			str+='			<input id="nicxx" datatype="nic" nullmsg="昵称不能为空" name="username" value="{wc:$member['username']}" type="text" class="txt gray" maxlength="5">';
+			str+='		</td>					';
+			str+='<td><input name="submit" type="submit" value="保存" class="xgnc"></td>';
+			str+='	</tr>';
+			str+='	</tbody>';
+			str+='</table>';
+			str+='</form>';
+			$("#nickname").html(str);
+			$("#play").addClass("play");
+			
+	}
+	
+</script>
+<!--修改昵称end-->
+{wc:templates "index.footer"}

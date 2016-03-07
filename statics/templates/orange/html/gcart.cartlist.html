@@ -1,0 +1,83 @@
+{wc:templates "index.headerbar"}
+{wc:templates "index.headertop"}
+<div class="shop_process w1200">
+	<div class="m-cart-title gray3"><b>我的购物车</b></div>
+	<div class="i_tips"></div>
+	<div class="submitted">
+		<ul class="order">
+			<li class="top gray9">
+				<span class="goods">商品</span>
+				<span class="xj">小计</span>
+				<span class="do">操作</span>
+			</li>
+			{wc:loop $shoplist $shops}  
+			<li class="end" id="shoplist{wc:$shops['id']}">
+				<span class="goods">
+				<cite>
+				<b class="z-comms"></b></a></cite>
+				<cite class="u-cart-pic"><a href="{WEB_PATH}/cgoods/{wc:$shops['id']}" target="_blank" title="{wc:$shops['g_title']}">
+					<img alt="" src="{wc:fun:getimgshow($shops['g_thumb'])}"></a>
+					<i class="limitbuy-icon"></i>
+				</cite>
+				<cite class="u-cart-name">                                           
+					<span>
+						<a href="{WEB_PATH}/cgoods/{wc:$shops['id']}" target="_blank" title="{wc:$shops['g_title']}">(第{wc:$shops['qishu']}期){wc:$shops['g_title']}</a>
+					</span>					
+					价值：{wc:$shops['g_money']}{wc:fun:L('cgoods.currency')}
+				</cite>				
+				</span>		
+				<span  class="xj">{wc:$shops['cart_xiaoji']}</span>
+				<span class="do"><a href="javascript:;" onclick="delcartlist({wc:$shops['id']})"  class="z-comms"></a></span> 
+			</li>		
+			{wc:loop:end}	
+			<li class="ts fr">
+				<p class="right">{wc:fun:L('html.key')}{wc:fun:L('cgoods.sum.num')}:
+				<span>{wc:fun:L('cgoods.currency')}</span>
+				<span id="moenyCount">{wc:$MoenyCount}</span>
+				</p>
+			
+			</li>			
+		</ul>
+	</div>
+	<h5>
+		<a href="javascript:;"  id="but_ok" class="f-list-jiesuan">提交订单</a>
+		<a href="{WEB_PATH}"  id="but_on" class="f-list-return">返回继续{wc:fun:L('html.key')}</a>
+	</h5>
+</div>
+<script type="text/javascript"> 
+var info={wc:$Cartshopinfo};
+var xiaoji=$(".xj");
+var num=$(".amount");
+var message=$(".message");
+var moenyCount=$("#moenyCount");
+var cookie_pre="{wc:fun:GetConfig('cookie_pre')}";//cookie配置前缀	
+$(function(){
+	$("#but_ok").click(function(){
+		var countmoney=parseInt(moenyCount.text());		
+		if(countmoney > 0){			
+			$.cookie(cookie_pre+'Cartlista',$.toJSON(info),{expires:7,path:'/'});
+			document.location.href='{WEB_PATH}/member/gcart/pay/'+new Date().getTime();
+		}else{
+			alert("购物车为空!");
+		}
+	});
+});
+function UpdataMoney(shopid,number,zindex){		
+		var number = parseInt(number);
+		info['MoenyCount']=info['MoenyCount']-info[shopid]['money']*info[shopid]['num']+info[shopid]['money']*number;
+		info[shopid]['num']=number;
+		var xjmoney=xiaoji.eq(zindex+1);
+			xjmoney.text(info[shopid]['money']*number+'.00');
+			moenyCount.text(info['MoenyCount']+'.00');
+}
+
+
+function delcartlist(id){
+	info['MoenyCount'] = info['MoenyCount']-info[id]['money']*info[id]['num'];
+	$("#shoplist"+id).hide();
+	$("#moenyCount").text(info['MoenyCount']+".00");
+	delete info[id];
+	$.cookie(cookie_pre+'Cartlista',$.toJSON(info),{expires:30,path:'/'});
+}
+</script> 
+{wc:templates "index.footer"}

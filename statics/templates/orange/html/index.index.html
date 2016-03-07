@@ -1,0 +1,540 @@
+{wc:fun:js("jquery.webox")}
+{wc:fun:js("jquery.cartlist")}
+{wc:fun:js("koala.min.1.5")}
+{wc:fun:js("slider")}
+{wc:templates "index.header"}
+<script type="text/javascript">
+$(function() {
+	var bannerSlider = new Slider($('#banner_tabs'), {
+		time: 5000,
+		delay: 400,
+		event: 'hover',
+		auto: true,
+		mode: 'fade',
+		controller: $('#bannerCtrl'),
+		activeControllerCls: 'active'
+	});
+	$('#banner_tabs .flex-prev').click(function() {
+		bannerSlider.prev()
+	});
+	$('#banner_tabs .flex-next').click(function() {
+		bannerSlider.next()
+	});
+})
+</script>
+<!--banner 开始-->
+<div class="banner w1190">
+	<div class="banner_box b_gray" style="border-top:0;">
+	
+	<div class="banner_center">
+		<div id="banner_tabs" class="flexslider">
+		<ul class="slides">
+			{wc:loop Getslide(5) $slide}
+			<li style="float: left;">
+				<a href="javascript:void(0)" hidefocus="true" target="_self" class="">
+				<img src="{wc:fun:getimgshow($slide['img'])}">
+				</a>
+			</li>	
+			{wc:loop:end}	
+		</ul>
+		<ul class="flex-direction-nav">
+			<li><a class="flex-prev" href="javascript:;"><s></s></a></li>
+			<li><a class="flex-next" href="javascript:;"><s></s></a></li>
+		</ul>
+		<ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+			{wc:loop Getslide(5) $slide}
+				<li><a>1</a></li>
+			{wc:loop:end}	
+		</ol>
+		</div>	
+		<div class="slide-comd">
+			{wc:m=cloud_goods mod=cloud_goodslist(2,1) return=s_cgoods}
+			{wc:loop $s_cgoods $rq_cgoods}
+			<div class="commodity">
+				<ul>
+					<li class="comm-info fl">
+						<span><a href="{WEB_PATH}/cgoods/{wc:$rq_cgoods['id']}" target="_blank" title="{wc:$rq_cgoods['g_title']}">{wc:$rq_cgoods['g_title']}</a></span>
+						<p class="gray">已参与<em class="orange">{wc:$rq_cgoods['canyurenshu']}</em>人次</p>
+					</li>
+					<li class="comm-pic fr"><a href="{WEB_PATH}/cgoods/{wc:$rq_cgoods['id']}" target="_blank" title="{wc:$rq_cgoods['g_title']}" rel="nofollow">
+						<cite>
+							<img alt="{wc:$rq_cgoods['g_title']}" src="{wc:fun:getimgshow($rq_cgoods['g_thumb'])}" border="0" width="100" height="100"></cite>
+						
+					</a>
+					</li>
+					
+				</ul>
+			</div>
+			{wc:loop:end}									
+		 </div>		
+		 
+	</div>
+
+		<div class="banner_boxR">
+			<div class="m_login bb_gray">
+				<a href="{WEB_PATH}/single/newbie" target="_blank"><img src="{wc:fun:getimgshow('index-come.gif',G_TEMPLATES_IMAGE)}" width="208" height="108"></a>
+			</div>
+			<div class="m_app bb_gray">
+				<ul>
+					<li><a href=""><i class="i1"></i>诚信网站</a></li>
+					<li><a href=""><i class="i2"></i>可信网站</a></li>
+					<li><a href=""><i class="i3"></i>电商诚信</a></li>
+					<li><a href=""><i class="i4"></i>安信宝</a></li>
+					<li><a href=""><i class="i5"></i>监督管理局</a></li>
+					<li><a href=""><i class="i6"></i>更多</a></li>
+				</ul>
+			</div>
+			<div class="m_news">
+				<div class="m_newsT bb_gray bl_gray">
+					<p class="notice c_red">官方公告</p>
+				</div>
+				<div class="m_newsM bl_gray">
+					<div class="m_newsML">
+                        {wc:loop $notice $v}
+                        <a href="{WEB_PATH}/article-{wc:$v['id']}.html" target="_blank">{wc:$v['title']}</a>
+                        {wc:loop:end}
+					</div>
+					<div class="m_newsMR">
+                        {wc:loop $notice $v}
+                        <p>{wc:fun:microt($v['posttime'],'s')}</p>
+                        {wc:loop:end}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--banner 结束-->
+<div class="clear"></div>
+<!--最新揭晓 get_ready 开始-->
+<div class="get_ready w1200" style="margin-top:10px;">
+<div class="title"><p><i></i>最新揭晓</p>
+</div>
+	<div class="prin_pp g_list">
+		<ul id="prin_pp">
+		{wc:m=cloud_goods mod=cloud_goodsed(5) return=r_cgoodslisted}
+		{wc:loop $r_cgoodslisted $cgoodslisted}			
+			<li class="new3_li">
+				<dl style="display: block;">
+					<dt><a href="{WEB_PATH}/cgoods/{wc:$cgoodslisted['id']}" target="_blank"><img src="{wc:fun:getimgshow($cgoodslisted['g_thumb'])}"  width="213"height="200"></a></dt>
+					<dd class="g_user"><p>恭喜<a href="{WEB_PATH}/uname/{wc:fun:idjia($cgoodslisted['q_uid'])}" target="_blank">{wc:fun:Getusername($cgoodslisted['q_uid'])}</a>获得</p></dd>
+					<dd class="g_name"><a href="{WEB_PATH}/cgoods/{wc:$cgoodslisted['id']}" target="_blank" title="{wc:$cgoodslisted['g_title']}">(第{wc:$cgoodslisted['qishu']}期){wc:$cgoodslisted['g_title']}</a></dd>					
+					<dd class="gray">{wc:fun:get_ip(Getuserinfo($cgoodslisted['q_uid'],'user_ip'),'ipcity')}</dd>
+				</dl>
+				<s></s>
+			</li>		
+		{wc:loop:end}	
+		</ul>	
+<!--正在倒计时start-->		
+<script>
+ var APP = {
+      WEB_PATH : '{wc:WEB_PATH}',
+      G_WEB_PATH : '{wc:G_WEB_PATH}',
+      G_PARAM_URL : '{wc:G_PARAM_URL}'
+    };		
+</script>		
+<script type="text/javascript" src="{G_GLOBAL_STYLE}/global/js/jquery.BusyTime.js"></script>	
+<script type="text/javascript" src="{G_GLOBAL_STYLE}/global/js/jquery.cmsapi.js"></script>	
+<style>
+.busytime i{
+	color: #fff;
+	font-size: 15px;
+	line-height: 30px;
+	border-radius: 3px;
+	padding: 5px;
+}
+</style>
+<script>
+$.YunCmsApi.Loop({
+	"timer"	  : 15000,
+	"callback": function(data){
+		var path='{WEB_PATH}';
+		var html= '';	
+		html+='<li class="current" id="timeloop'+data.id+'"><s></s><dl style="display: block;">';
+		html+='<div class="print">';
+		html+='<dt><a href="'+path+'/cgoods/'+data.id+'" target="_blank">';
+		html+='<img src="'+data.upload+'/'+data.thumb+'">';
+		html+='</a></dt><dd class="g_name">';
+		html+='<a href="'+path+'/cgoods/'+data.id+'" target="_blank" style="font-size:12px;">(第'+data.qishu+'期)'+data.title+'</a></dd>';
+		html+='<dd class="gray">价值：'+data.money+data.currency+'</dd>';
+		html+='<dd class="u_time">';
+		html+='<em>揭晓倒计时</em>';
+		html+= '<span class="shi"><span class="busytime" pattern="<i>mm</i>:<i>ss</i>:<i>ms</i>" time="'+(new Date().getTime() + (data.times * 1000)) +'">99 : 99 : 99</span>';							
+		html+= '</span>';	
+		html+='</dd></div></dl></li>';					
+		var divl = $("#prin_pp").find('li');
+		var len = divl.length;			
+		if(len==3 && len  >0){
+			var this_len = len - 1;
+			divl.eq(this_len).remove();
+		}			
+		$("#prin_pp").prepend(html);
+		$("#timeloop"+data.id+" .busytime").busytime({
+			callback:function($dom){
+				$dom.find(".shi").html('<span class="minute">正在计算,请稍后…</span>');	
+				setTimeout(function(){
+				$.post(path+'/index/getshop/lottery_shop_getjson/',{gid:data.id},function(info){
+					var uhtml = '';		
+					uhtml+='<div class="print">';
+					uhtml+= '<dl style="display: block;">';
+					uhtml+= '<dt><a href="'+path+'/cgdataserver/'+info.id+'"><img src="'+info.upload+'/'+info.thumb+'"  width="213" height="200"></a></dt>';
+					uhtml+= '<dd class="g_user"><p>恭喜<a href="'+path+'/uname/'+(1000000000 + parseInt(info.uid))+'">'+info.user+'</a>获得</p></dd>';
+					uhtml+= '<dd class="g_name"><a href="'+path+'/cgdataserver/'+info.id+'" title="'+info.title+'">(第'+info.qishu+'期)'+info.title+'</a></dd>';
+					uhtml+= '<dd class="gray">'+info.city+'</dd>';
+					uhtml+= '</dl><s></s></div>';
+					$("#timeloop"+data.id).removeClass("current").addClass("new3_li");
+					$("#timeloop"+data.id).html(uhtml);				
+				},'json');
+				},5000);
+			}
+		}).start();				
+	}
+});
+</script>		
+<!---正在倒计时end--->			
+	</div>	
+</div>
+<!--最新揭晓 get_ready 结束-->
+<div class="clear"></div>
+<!--goods_hot 开始-->
+<div class="goods_hot  w1200" style="margin-top:10px;">
+	<div class="title">
+		<div class="m-other fr">
+		<a href="{WEB_PATH}/cgoods_list/0_0_2" target="_blank" title="更多" class="u-more">更多</a>
+		</div>	
+		<p><i></i>热门推荐</p>
+	</div>
+	<div class="goods_hotcenter clrfix">
+		<div class="goods_hotL fl">		
+			<ul class="hot_list">
+			{wc:m=cloud_goods mod=cloud_goodslist(8,2) return=r_cgoods}
+			{wc:loop $r_cgoods $recommended}
+				<li class="list-block">
+					<div class="pic"><a href="{WEB_PATH}/cgoods/{wc:$recommended['id']}" target="_blank"><img src="{wc:fun:getimgshow($recommended['g_thumb'])}"></a></div>
+					<p class="name"><a href="{WEB_PATH}/cgoods/{wc:$recommended['id']}" title="(第{wc:$recommended['qishu']}期){wc:$recommended['g_title']}" target="_blank">(第{wc:$recommended['qishu']}期){wc:$recommended['g_title']}</a></p>
+					<p class="money">{wc:fun:L('cgoods.value')}：<span class="rmb">{wc:$recommended['g_money']}</span>  {wc:fun:L('cgoods.currency')}</p>
+					<div class="Progress-bar" style="">
+						<p title="已完成{wc:fun:percent($recommended['canyurenshu'],$recommended['zongrenshu'])}">
+						<span class="blue" style="width:{wc:fun:width($recommended['canyurenshu'],$recommended['zongrenshu'],212)}px;"></span></p>
+						<ul class="Pro-bar-li">
+							<li class="P-bar01"><em class="c_red">{wc:$recommended['canyurenshu']}</em>已参与人次</li>
+							<li class="P-bar02"><em>{wc:$recommended['zongrenshu']}</em>总需人次</li>
+							<li class="P-bar03"><em>{wc:$recommended['zongrenshu']-$recommended['canyurenshu']}</em>剩余人次</li>
+						</ul>
+					</div>
+					
+					<div class="w-shop-ing">
+						<a href="javascript:;" target="_blank" class="w-shop-inga" onclick="jwebox.goshopnow({wc:$recommended['id']},'{WEB_PATH}')">{wc:fun:L('cgoods.go')}</a>				
+					</div>
+				</li>
+			{wc:loop:end}
+			</ul>
+		</div>
+		
+		<div class="goods_hotR fr">
+			<div class="u_title bt_gray  br_gray">哥只是传奇</div>
+			<div class="u_listshow br_gray">
+				<ul class="user">
+				{wc:m=cloud_goods mod=cloud_user_recordhuode(7) return=r_recordhuode}
+				{wc:loop $r_recordhuode $recordhuode}
+				{wc:m=cloud_goods mod=cloud_goodsdetaila($recordhuode['ogid']) return=user_cgoods}
+				{wc:if $user_cgoods}
+					<li>
+					<span class="fl"><a class="c_yellow" href="{WEB_PATH}/uname/{wc:fun:idjia($recordhuode['ouid'])}" target="_blank">
+					{wc:if get_user_key($recordhuode['ouid'],'img','8080')=='null'}
+					<img class="mt10 mb10" src="{wc:fun:getimgshow('photo/member.jpg.8080.jpg')}"width="58"height="58"></a>
+					{wc:else}
+					<img class="mt10 mb10" src="{wc:fun:getimgshow(Getuserimg($recordhuode['ouid']))}.8080.jpg" width="58"height="58">
+					{wc:if:end}
+					</a>
+					</span>
+					<p>
+					<a class="c_user" href="{WEB_PATH}/uname/{wc:fun:idjia($recordhuode['ouid'])}" target="_blank">{wc:fun:get_user_key($recordhuode['ouid'],'username')}</a><br>
+					<a target="_blank" href="{WEB_PATH}/cgoods/{wc:$recordhuode['ogid']}" title="{wc:fun:useri_title($recordhuode['og_title'],'g_title')}" class="u-ongoing">{wc:fun:useri_title($recordhuode['og_title'],'g_title')}
+					</a>
+					</p>		
+					</li>		
+				{wc:if:end}
+				{wc:loop:end}
+				</ul>
+			</div>
+			<div class="u-see100  br_gray bb_gray"><a  href="{WEB_PATH}/buyrecordbai" target="_blank">查看最新100条记录</a></div>
+		</div>	
+	</div>
+	
+</div>
+<!--goods_hot 结束-->
+<div class="clear"></div>
+
+<!--即将揭晓 goods_hotR 开始-->
+<div class="get_ready w1200" style="margin-top:10px;">
+	<div class="title">
+		<div class="catalog fr" style="width:950px;">
+			<div class="fr">
+			<a href="{WEB_PATH}/cgoods_list/">全部</a>
+			{wc:loop array_reverse(GetCate('0',7,5)) $v}
+				<a href="{WEB_PATH}/cgoods_list/{wc:$v['cateid']}_0_0">{wc:$v['name']}</a>
+			{wc:loop:end}
+			</div>
+		</div>		
+		<p><i></i>即将揭晓</p>
+	</div>
+	<ul>
+		{wc:m=cloud_goods mod=cloud_goodslist(8,5) return=r_cgoods}
+		{wc:loop $r_cgoods $ready}
+		<li class="list-block">
+			<div class="pic"><a href="{WEB_PATH}/cgoods/{wc:$ready['id']}"   target="_blank"><img src="{wc:fun:getimgshow($ready['g_thumb'])}"></a></div>
+			<p class="name"><a href="{WEB_PATH}/cgoods/{wc:$ready['id']}"   target="_blank">{wc:$ready['g_title']}</a></p>
+			<p class="money">{wc:fun:L('cgoods.value')}：<span class="rmb">{wc:$ready['g_money']}</span></p>
+			<div class="Progress-bar" style="">
+				<p title="已完成{wc:fun:percent($ready['canyurenshu'],$ready['zongrenshu'])}">
+				<span style="width:{wc:fun:width($ready['canyurenshu'],$ready['zongrenshu'],275)}px;"></span></p>
+				<ul class="Pro-bar-li">
+					<li class="P-bar01"><em class="c_red">{wc:$ready['canyurenshu']}</em>已参与人次</li>
+					<li class="P-bar02"><em>{wc:$ready['zongrenshu']}</em>总需人次</li>
+					<li class="P-bar03"><em>{wc:$ready['zongrenshu']-$ready['canyurenshu']}</em>剩余人次</li>
+				</ul>
+			</div>
+			<div class="w-goods-ing">
+				<div class="bg_red">
+					<a href="javascript:;" style="line-height:30px;font-size:14px;"  class="Det_Shopnow u-now" onclick="jwebox.goshopnow({wc:$ready['id']},'{WEB_PATH}')">{wc:fun:L('cgoods.go')}</a>
+				</div>
+				<div class="shop_buttom1" style="margin:0 10px;width:80px;height:30px;">
+					<a class="c_red u-cart"   href="javascript:;" onclick="gcartlist.gocartlist({wc:$ready['id']},'{WEB_PATH}','{wc:fun:GetConfig('cookie_pre')}')" style="line-height:30px;font-size:14px;">
+					<s></s>
+					</a>
+				</div>
+
+			</div>
+		</li>
+		{wc:loop:end}
+	</ul>
+</div>
+<!--即将揭晓 get_ready 结束-->
+<div class="clear"></div>
+<!--新品上架 new_goods 开始-->
+<div class="new_goods w1200" style="margin-top:10px;">
+	<div class="title">
+		<div class="m-other fr">
+		<a href="{WEB_PATH}/cgoods_list/0_0_4" target="_blank" title="更多" class="u-more">更多</a>
+		</div>	
+		<p><i></i>新品上架</p>
+	</div>
+	<ul>
+		{wc:m=cloud_goods mod=cloud_goodslist(8,4) return=n_cgoods}
+		{wc:loop $n_cgoods $new}
+		<li class="list-block">
+			<div class="pic"><a href="{WEB_PATH}/cgoods/{wc:$new['id']}" target="_blank"><img src="{wc:fun:getimgshow($new['g_thumb'])}"></a></div>
+			<p class="name"><a href="{WEB_PATH}/cgoods/{wc:$new['id']}" target="_blank">{wc:$new['g_title']}</a></p>
+			<p class="money">{wc:fun:L('cgoods.value')}：<span class="rmb">{wc:$new['g_money']}</span></p>
+		</li>
+		{wc:loop:end}
+	</ul>
+</div>
+<!--新品上架 new_goods 结束-->
+<div class="clear"></div>
+<!--lottery_show 晒单分享-->
+<div class="lottery_show w1200" style="margin-top:10px">
+	<div class="title">
+		<div class="m-other fr">
+		<a href="{WEB_PATH}/index/share/init" target="_blank" title="更多" class="u-more">更多</a>
+		</div>	
+		<p><i></i>晒单分享</p>
+	</div>
+    <div class="share_show">
+		<div class="singleL">
+		{wc:m=share mod=sharelist(0,1) return=shareL}
+	    {wc:if $shareL}
+			<dl>
+			{wc:loop $shareL  $shareLeft}
+				<dt><a href="{WEB_PATH}/index/share/detail/{wc:$shareLeft['sd_id']}" target="_blank"><img src="{wc:fun:getimgshow($shareLeft['sd_thumbs'])}"></a></dt>
+				<dd class="u_user">
+					<p class="u_head"><a href="">
+                    {wc:if get_user_key($shareLeft['sd_userid'],'img','8080')=='null'}
+                    <img class="mt10 mb10" src="{wc:fun:getimgshow('photo/member.jpg.8080.jpg')}"width="58"height="58"></a>
+                    {wc:else}
+                    <img src="{wc:fun:getimgshow(Getuserimg($shareLeft['sd_userid']))}.8080.jpg"></a></p>
+                    {wc:if:end}
+					<p class="u_info">
+						<span><a href="{WEB_PATH}/uname/{wc:fun:idjia($shareLeft['sd_userid'])}" target="_blank">{wc:fun:Getusername($shareLeft['sd_userid'])}</a><em>{wc:fun:_put_time($shareLeft['sd_time'])}</em></span>
+						<cite><a href="{WEB_PATH}/index/share/detail/{wc:$shareLeft['sd_id']}" target="_blank">{wc:$shareLeft['sd_title']}</a></cite>
+					</p>
+				</dd>
+				<dd class="m_summary">
+					<cite><a href="{WEB_PATH}/index/share/detail/{wc:$shareLeft['sd_id']}" target="_blank">{wc:$shareLeft['sd_content']}</a></cite>
+					<b><s></s></b>
+				</dd>
+			{wc:loop:end}
+			</dl>
+		{wc:if:end}
+		</div>
+		<div class="singleR">
+		{wc:m=share mod=sharelist(1,6) return=shareR}
+	    {wc:if $shareR}
+			<ul id="ul_PostList">
+	    {wc:loop $shareR  $shareRight}
+				<li><a href="{WEB_PATH}/index/share/detail/{wc:$shareRight['sd_id']}" target="_blank"><img src="{wc:fun:getimgshow($shareRight['sd_thumbs'])}"><p>{wc:$shareRight['sd_title']}</p></a></li>
+		{wc:loop:end}
+			</ul>
+		{wc:if:end}
+		</div>
+    </div>
+</div>
+<!--lottery_show 晒单分享end-->
+<div class="clear"></div>
+<!--topic 开始-->
+<div class="topic w1200"style="margin-top:10px;">
+	<div class="line bg_red"></div>
+	<div class="topicAll">
+      <script language=JavaScript>
+
+<!--
+var bannerAD=new Array();
+var bannerADlink=new Array();
+var adNum=0;
+{wc:loop readad('img') $ad}
+bannerAD[{wc:$ad['key']}]="{G_UPLOAD_PATH}/{wc:$ad['content']}";
+bannerADlink[{wc:$ad['key']}]="";
+{wc:loop:end}
+
+var preloadedimages=new Array();
+for (i=1;i<bannerAD.length;i++){
+preloadedimages[i]=new Image();
+preloadedimages[i].src=bannerAD[i];
+}
+
+function setTransition(){
+if (document.all){
+bannerADrotator.filters.revealTrans.Transition=Math.floor(Math.random()*23);
+bannerADrotator.filters.revealTrans.apply();
+}
+}
+
+function playTransition(){
+if (document.all)
+bannerADrotator.filters.revealTrans.play()
+}
+
+function nextAd(){
+if(adNum<bannerAD.length-1)adNum++ ;
+else adNum=0;
+setTransition();
+document.images.bannerADrotator.src=bannerAD[adNum];
+playTransition();
+theTimer=setTimeout("nextAd()", 4000);
+}
+
+function jump2url(){
+jumpUrl=bannerADlink[adNum];
+jumpTarget='_blank';
+if (jumpUrl != ''){
+if (jumpTarget != '')window.open(jumpUrl,jumpTarget);
+else location.href=jumpUrl;
+}
+}
+function displayStatusMsg() {
+status=bannerADlink[adNum];
+document.returnValue = true;
+}
+-->
+</script>
+		<div class="topicAllL fl">
+			<ul class="column fl b_gray">
+            {wc:if readad('img')}
+            <li onMouseOver="displayStatusMsg();return document.returnValue" href="javascript:jump2url()"><img src="search_banner.gif"
+            name=bannerADrotator width="280" height="165" border='0' align="middle" > </li>
+            <script language=JavaScript>nextAd()</script></td>
+            {wc:else}
+			<li><img src="{G_TEMPLATES_IMAGE}/u826.png" width="280" height="165"></li>
+            {wc:if:end}
+				<li>
+					<h1>推荐话题</h1>
+					{wc:m=common.club_db mod=GetHotClubPost(4) return=hotpost}
+					{wc:loop $hotpost $hp}
+					<a href="{WEB_PATH}/index/club/nei/{wc:$hp['id']}">•  {wc:$hp['title']}</a>
+					{wc:loop:end}
+				</li>
+				<li style="margin-left:10px;">
+					<h1>最新话题</h1>
+					{wc:m=common.club_db mod=GetNewClubPost(4) return=newpost}
+					{wc:loop $newpost $np}
+					<a href="{WEB_PATH}/index/club/nei/{wc:$np['id']}">•  {wc:$np['title']}</a>
+					{wc:loop:end}
+				</li>
+			</ul>
+			<ul class="columns fl b_gray" style="border-top:0">
+				{wc:m=common.club_db mod=GetClubList(4) return=data}
+				{wc:loop $data $v}
+
+				<li>
+					{wc:if $v['img']==null}
+					<img src="{wc:fun:getimgshow('photo/member.jpg_8080.jpg')}" width="80" height="80">
+					{wc:else}
+					<img src="{wc:fun:getimgshow($v['img'])}" width="80" height="80">
+					{wc:if:end}
+					<div class="idea fl mt10">
+						<p>{wc:$v['title']}</p>
+						<p>
+							<span class="people fl"></span>
+							<span class="number fl">{wc:$v['chengyuan']}</span>
+							<span class="message fl"></span>
+							<span class="number fl">{wc:$v['tiezi']}</span>
+						</p>
+						<a href="{WEB_PATH}/index/club/show/{wc:$v['cid']}">申请加入</a>
+					</div>
+				</li>
+				{wc:loop:end}
+			</ul>
+		</div>
+		<div class="topicAllR fl bb_gray br_gray">
+			<h1>圈子活跃用户</h1>
+			<ul>
+				{wc:m=common.club_db mod=GetHotClubUser() return=HotUser}
+				{wc:loop $HotUser $hu}
+				{wc:if userid($hu['huiyuan'],'img')==null}
+				<li>
+					<p><a href="{WEB_PATH}/uname/{wc:fun:idjia($hu['huiyuan'])}"><img src="{wc:fun:getimgshow('photo/member.jpg.8080.jpg')}"></a></p>
+				</li>
+				{wc:else}
+				<li>
+					<p><a href="{WEB_PATH}/uname/{wc:fun:idjia($hu['huiyuan'])}"><img src="{wc:fun:getimgshow(Getuserimg($hu['huiyuan']))}.8080.jpg"></a></p>
+				</li>
+				{wc:if:end}
+				{wc:loop:end}
+			</ul>
+		</div>
+	</div>
+</div>
+<!--topic 结束-->
+
+<div class="clear"></div>
+<script type="text/javascript">
+	Qfast.add('widgets', { path: "{G_TEMPLATES_JS}/terminator2.2.min.js", type: "js", requires: ['fx'] });
+	Qfast(false, 'widgets', function () {
+		K.tabs({
+			id: 'fsD1',   //焦点图包裹id
+			conId: "D1pic1",  //** 大图域包裹id
+			tabId:"D1fBt",
+			tabTn:"a",
+			conCn: '.fcon', //** 大图域配置class
+			auto: 1,   //自动播放 1或0
+			effect: 'fade',   //效果配置
+			eType: 'mouseover', //** 鼠标事件
+			pageBt:true,//是否有按钮切换页码
+			bns: ['.prev', '.next'],//** 前后按钮配置class
+			interval: 3000  //** 停顿时间
+		})
+	})
+</script>
+<script type="text/javascript">
+
+
+$(".b_gray").mouseenter(function(){
+   $(this).find(".w_goods_pic").find("img").stop().animate({left:"-10px"});
+})
+$(".b_gray").mouseleave(function(){
+   $(this).find(".w_goods_pic").find("img").stop().animate({left:"0px"});
+})
+</script>
+{wc:templates "index.footer"}

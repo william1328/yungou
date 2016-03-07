@@ -1,0 +1,115 @@
+{wc:fun:js("jquery.cmsapi")}
+{wc:fun:js("jquery.pageDialog")}
+{wc:fun:css("help")}
+{wc:templates "index.header_top"}
+<script type="text/javascript">
+	$.YunCmsApi.SetTopStyle({
+		"Title":"购物车",
+		"Home":true,
+		"Shop":true
+	});	
+</script>
+<section class="clearfix g-Cart">
+	{wc:if $shoplist}
+    <article class="clearfix m-round g-Cart-list">        
+	<ul id="cartBody"> 		
+		{wc:loop $shoplist $shops}		
+		<li   id="shoplist{wc:$shops['id']}">		            
+			<a class="fl u-Cart-img" href="{WEB_PATH}/cgoods/{wc:$shops['id']}">
+				<img src="{G_UPLOAD_PATH}/{wc:$shops['g_thumb']}" border="0" alt=""/>
+			</a>
+			<div class="u-Cart-r">
+				<p class="z-Cart-tt"><a href="{WEB_PATH}/cgoods/{wc:$shops['id']}" class="gray6">{wc:$shops['g_title']}</a></p>			
+				<p class="gray9">
+				<em class="orange arial">{wc:$shops['g_money']}{wc:fun:L('cgoods.currency')}</em></p>
+				<p class="message"></p>				
+			</div>
+		</li>
+		{wc:loop:end}								
+        </ul>		
+    </article>   
+    <div id="divBtmMoney" class="g-Total-bt"><p>合计金额：<span class="orange arial" id="moenyCount">{wc:$MoenyCount}</span> 
+	{wc:fun:L('cgoods.currency')}</p><a  href="javascript:;"  id="but_ok"  class="orgBtn">结 算</a>
+	</div>
+	{wc:if:end}
+	<div id="divNone" class="haveNot z-minheight" style="display:none;"><s></s><p>抱歉，您的购物车没有商品记录！</p></div>	
+	{wc:if !$shoplist}
+	<script type="text/javascript"> 
+		$('#divNone').show();
+	</script>		
+	{wc:if:end}	
+</section>
+<script type="text/javascript"> 
+var info={wc:$Cartshopinfo};
+var xiaoji=$(".xj");
+var num=$(".amount");
+var message=$(".message");
+var moenyCount=$("#moenyCount");
+var cookie_pre="{wc:fun:GetConfig('cookie_pre')}";//cookie配置前缀	
+var payn_money=parseInt($("#moenyCount").text());	
+var pay_money=parseInt({wc:$MoenyCount});	
+var left_money=parseInt({wc:$left_money['price']});	
+$(function(){
+	var Balance=$("#spBalance");
+	//Balance.attr("sel","1").attr("class", "z-pay-mentsel");		
+	if(Balance.attr("sel")=='1'){	
+		if(left_money){
+			$("#moenyCount").text(pay_money-left_money+'.00');
+		}			
+	}	
+	Balance.click(function(y){
+		if(Balance.attr("sel")=='1'){					
+			if(left_money){
+				$("#moenyCount").text(pay_money-left_money+'.00');
+			}			
+			Balance.attr("sel","0").attr("class", "z-pay-mentsel");
+		}else{  			
+			if(left_money){
+				$("#moenyCount").text(pay_money+'.00');
+			}		
+			Balance.attr("sel","1").attr("class", "z-pay-ment");
+		}
+	});		
+	$("#left_shopmoney").attr("checked",true);
+
+	$("#but_ok").click(function(){
+		var countmoney=parseInt(moenyCount.text());		
+		if(countmoney > 0){			
+			$.cookie(cookie_pre+'Cartlista',$.toJSON(info),{expires:7,path:'/'});
+			document.location.href='{WEB_PATH}/member/gcart/pay/'+new Date().getTime();
+		}else{
+			alert("购物车为空!");
+		}
+	});
+});
+function UpdataMoney(shopid,number,zindex){		
+		var number = parseInt(number);
+		info['MoenyCount']=info['MoenyCount']-info[shopid]['money']*info[shopid]['num']+info[shopid]['money']*number;
+		info[shopid]['num']=number;
+		var xjmoney=xiaoji.eq(zindex+1);
+			xjmoney.text(info[shopid]['money']*number+'.00');
+			moenyCount.text(info['MoenyCount']+'.00');
+}
+
+
+function delcartlist(id){
+	info['MoenyCount'] = info['MoenyCount']-info[id]['money']*info[id]['num'];
+	$("#shoplist"+id).hide();
+	$("#moenyCount").text(info['MoenyCount']+".00");
+	delete info[id];
+	$.cookie(cookie_pre+'Cartlista',$.toJSON(info),{expires:30,path:'/'});
+}
+
+	$('#left_shopmoney').click(function(){	
+		var pay_money=parseInt($("#moenyCount").text());	
+		var left_money=parseInt({wc:$left_money['price']});		
+		if(this.checked){
+			$("#moenyCount").text(pay_money-left_money+'.00');
+		}else{
+			$("#moenyCount").text(pay_money+left_money+'.00');		
+		}				
+		pay_money=parseInt($("#moenyCount").text());
+	});	
+</script> 
+<!-- footer 开始-->
+{wc:templates "index.footer"}

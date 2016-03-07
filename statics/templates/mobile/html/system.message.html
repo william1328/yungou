@@ -1,0 +1,36 @@
+{wc:fun:js("jquery.cmsapi")}
+{wc:templates "index.header_top"}
+<script type="text/javascript">
+	$.YunCmsApi.SetTopStyle({
+		"Title":"提示",
+		"Home":true
+	});	
+</script>
+<div class="g-pay-auto">
+	<div class="z-pay-tips"><i></i><b><em class="gray6">{wc:$string}</em></b>
+		<a class="a-2" href="javascript:;" onclick="locahost()"> <font id="time" style="color:red;">{wc:$time}</font> 秒后返回上一页面</a>
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+ var close_id;
+var i = {wc:$time};	
+function locahost(){
+	clearInterval(close_id);
+	{wc:if $defurl == ':js:'}window.history.back();{wc:else}location.href="{wc:$defurl}";{wc:if:end}
+}
+if(i!=0){
+	close_id = setInterval(function() {
+		if (i > 1) {	
+			i--;
+			document.getElementById('time').innerHTML = i;
+		} else {
+			locahost();
+		}
+	}, 1000);
+}
+</script>
+
+
+{wc:templates "index.footer"}

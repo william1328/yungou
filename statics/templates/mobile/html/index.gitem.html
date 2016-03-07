@@ -1,0 +1,153 @@
+{wc:fun:js("jquery.GoodsPicSlider")}
+{wc:fun:js("jquery.cmsapi")}
+{wc:fun:js("jquery.pageDialog")}
+{wc:fun:js("jquery.cartlist")}
+{wc:fun:js("jquery.BusyTime")}
+{wc:templates "index.header_top"}
+<script type="text/javascript">
+	$(function(){
+		$("#sliderBox").picslider()
+	});
+	$.YunCmsApi.SetTopStyle({
+		"Title":"商品详情",
+		"Home":true,
+		"Member":false,
+		"Shop":true
+	});	
+</script>
+
+<section class="goodsCon pCon">
+    <!-- 导航 -->
+    <div id="divPeriod" class="pNav">
+        <div class="loading" style="display:none"><b></b>正在加载</div>
+    </div>
+
+    {wc:if $item['q_end_time'] =='' && $item['xsjx_time']!=0}
+    <!-- 限时揭晓倒计时 -->
+    <div id="divLotteryTime" class="pProcess clearfix">
+        <div class="pCountdown">
+            <div class="g-snav">
+                <div class="g-snav-lst">揭晓<br>倒计时<s></s></div>
+                <div class="g-snav-lst"><b>00</b><em>小时</em></div>
+                <div class="g-snav-lst"><b>00</b><em>分</em></div>
+                <div class="g-snav-lst"><b>00</b><em>秒</em></div>
+            </div>
+        </div>
+    </div>
+    {wc:if:end}
+
+
+    {wc:if $item['q_end_time'] != '' && $item['xsjx_time']==0}
+    <!-- 普通揭晓倒计时 -->
+    <div id="divLotteryTime" class="pProcess clearfix">
+        <div class="pCountdown">
+            <div id="busytime" class="g-snav busytime">
+                <div class="g-snav-lst">揭晓<br>倒计时<s></s></div>
+                <div class="g-snav-lst"><b>00</b><em>小时</em></div>
+                <div class="g-snav-lst"><b>00</b><em>分</em></div>
+                <div class="g-snav-lst"><b>00</b><em>秒</em></div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    var html =  '<div class="g-snav-lst">揭晓<br>倒计时<s></s></div>'+
+                '<div class="g-snav-lst"><b>{hh}</b><em>时</em></div>'+
+                '<div class="g-snav-lst"><b>{mm}</b><em>分</em></div>'+
+                '<div class="g-snav-lst"><b>{ss}.{ms}</b><em>秒</em></div>';
+   
+
+    $.post("{WEB_PATH}/index/getshop/lottery_shop_get",{"lottery_shop_get":true,"gid":{wc:$item['id']},"times":Math.random()},function(ret){
+            var times = (new Date().getTime())+(parseInt(ret))*1000;
+            if(ret == 'no')return;
+             $("#busytime").attr("time",times);
+                      $("#busytime").busytime({
+                        view    : html,
+                        callback:function($dom){
+                           window.location.href="{WEB_PATH}/cgdataserver/{wc:$item['id']}";
+                        }
+            }).start();
+
+        }         
+    );
+
+</script>
+
+
+
+    {wc:if:end}
+
+
+
+    <!-- 产品图 -->
+    <div id="divPic" class="pPic">
+        <div class="pPic2">
+            <div id="sliderBox" class="pImg">
+                <div class="loading" style="display:none"><b></b>正在加载</div>
+                <ul class="slides">
+                    {wc:loop $item['g_picarr'] $imgtu}
+                    <li><img src="{G_UPLOAD_PATH}/{wc:$imgtu}" /></li>
+                    {wc:loop:end}
+                </ul>
+                <ul class="direction-nav">
+                    <li class="prev" style="display: block; width: 205px;"></li>
+                    <li class="next" style="display: block; width: 205px;"></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- 条码信息 -->
+    <div class="pDetails">
+        <b>{wc:$item['g_title']}<span></span></b>
+        <p class="price">{wc:fun:L('cgoods.value')}：<em class="arial gray">
+		{wc:$item['g_money']}{wc:fun:L('cgoods.currency')}</em></p>
+		  <div id="btnBuyBox" class="pBtn" codeid="{wc:$item['gid']}">
+			<a href="javascript:;" class="fl buyBtn Det_Shopbut" style="width: 98%;">{wc:fun:L('cgoods.go')}</a>						
+		  </div> 
+	</div>
+
+    <!-- 上期获得者 -->
+    <div class="joinAndGet">
+        <dl>
+            <a href="{WEB_PATH}/index/goods/goodsdesc/{wc:$item[gid]}"><b class="fr z-arrow"></b>图文详情<em>（建议WIFI下使用）</em> </a>
+        </dl>
+
+    </div>
+</section>
+<script>
+var shopinfo={'shopid':{wc:$item['gid']},'money':{wc:$item['g_money']}};
+
+$(function(){
+
+    $(".Det_Cart").click(function(){ 
+    	Cartcookie(false);
+    });
+	$(".Det_Shopbut").click(function(){	
+		Cartcookie(true);
+	});	
+});
+
+
+//添加购买
+function Cartcookie(cook){
+	var info = {};
+	var shopid=shopinfo['shopid'];
+	var cookie_pre="{wc:fun:GetConfig('cookie_pre')}";//cookie配置前缀	
+	if(!info[shopid]){
+		var CartTotal=$("#sCartTotal").text();
+			$("#sCartTotal").text(parseInt(CartTotal)+1);
+			$("#btnMyCart em").text(parseInt(CartTotal)+1);
+	}		
+	info[shopid]={};
+	info[shopid]['money']=shopinfo['money'];
+	info['MoenyCount']='0.00';
+	$.cookie(cookie_pre+'Cartlista',$.toJSON(info),{expires:7,path:'/'});
+  
+	if(cook){
+		window.location.href="{WEB_PATH}/member/gcart/cartlistgoods/"+new Date().getTime();//+new Date().getTime()
+	}
+}
+</script>
+<!-- footer 开始-->
+{wc:templates "index.footer"}

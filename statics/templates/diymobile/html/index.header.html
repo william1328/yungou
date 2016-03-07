@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, maximum-scale=1.0"/>
+{wc:fun:seo()}
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/{wc:fun:color_css()}.css"/>
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_CSS}/comm.css"/>
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_CSS}/index.css"/>
+{wc:fun:css()}
+<script type="text/javascript" src="{G_GLOBAL_STYLE}/global/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="{G_TEMPLATES_JS}/jquery.cookie.js"></script>
+<script>;
+ var APP = {
+      WEB_PATH : '{wc:WEB_PATH}',
+      G_WEB_PATH : '{wc:G_WEB_PATH}',
+      G_PARAM_URL : '{wc:G_PARAM_URL}'
+    };
+</script>
+{wc:fun:js()}
+</head>
+<body>
+<!-- header 开始 -->
+<header class="header">
+    {wc:if $item}
+    	<div class="head-l">
+	        <a href="javascript:;" onclick="history.go(-1)" class="z-HReturn"><s></s><b>返回</b></a>
+        </div>
+        <div class="head-r">
+	        <a id="btnCart" href="/mycart/index.do" class="z-shop"></a>
+        </div>
+    {wc:else}
+
+	    <h1 class="fl"><span></span><a href="{G_WEB_PATH}"><img src="{G_TEMPLATES_IMAGE}/logo.png"/></a></h1>
+	    <div class="fl u-slogan"></div>
+	    <div class="fr head-r">
+	        <a href="{WEB_PATH}/member/home/userindex" class="z-Member"></a>
+	        <a id="btnCart" href="{WEB_PATH}/member/cart/cartlist" class="z-shop"><em id="sCartTotal">0</em></a>
+	    </div>
+
+    {wc:if:end}
+</header>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$.get("{WEB_PATH}/member/cart/getnumber/"+new Date().getTime(),function(data){
+		if(data&&data!=0){		
+		    $("#sCartTotal").show();
+			$("#sCartTotal").text(data);	
+		}
+	});
+});
+</script>
+<!-- header 结束 -->

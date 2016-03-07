@@ -1,0 +1,35 @@
+index.html           首页
+index.glist.html     商品列表页
+goods.html           商品详情页
+post.html            晒单页面
+autolottery.html     限时揭晓
+buyrecords.html      云购记录
+goodsdesc.html       图文详情
+goodspost.html       晒单评论
+goodspostDetail.html 晒单详情页
+lottery.html         最新揭晓
+goods.now.html       正在揭晓商品详情页
+goods.past.html      揭晓结果
+login.html           登录页面
+register.html        注册页面
+about.html           新手指南
+cartlist.html        购物车
+cartpay.html         结算支付
+terms.html           注册--服务协议
+user.home.html       我的云购
+user.index.html      个人主页
+user.buylist.html    我的云购记录
+user.orderlist.html  获得的商品
+user.singlelist.html 我的晒单 
+user.balance.html    账户明细
+user.recharge.html   账户充值
+buyError.html        页面出错
+user.buydetail.html  云购详情
+user.dataserver.html 我的晒单--揭晓结果
+user.calResult.html  商品详情--上一期--查看计算结果
+
+
+
+
+
+

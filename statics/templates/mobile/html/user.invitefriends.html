@@ -1,0 +1,103 @@
+{wc:fun:js("jquery.cmsapi")}
+{wc:fun:js("template")}
+{wc:fun:js("template.fun")}
+{wc:fun:js("jquery.pageDialog")}
+
+{wc:templates "index.header_top"}
+<script type="text/javascript">
+	$.YunCmsApi.SetTopStyle({
+		"Title":"邀请好友",
+		"Member":true,
+		"Home":true
+	});
+</script>
+<link href="{G_TEMPLATES_CSS}/invite.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+    .m-member-nav{ text-align: center;color:#999; }
+	.ress_btn{			
+		    line-height: 35px;		 
+		    text-align: center;
+		    color: #fff;
+		    border: 1px solid #FE6D0B;
+		    display: inline-block;
+		    border-radius: 3px;
+		    box-shadow: 0 1px 2px #E7E7E7;
+		    background: #f60;
+		    width:100%;
+		    font-size: 1.5em;
+	}	
+	.ress_btn:hover{
+		  color: #fff;
+	}
+
+	#ress_list li{position: relative;text-align:left;}
+	#ress_list span{display: inline-block;text-indent: 10px;width: 70%}
+	#ress_list li i{ 
+		position: absolute;
+		display: inline-block;
+		right: 10px;
+		top:8px;
+		color: #fff;
+		border-radius: 3px; 
+		background: #ccc;
+		cursor: pointer;
+		text-align: center;
+		line-height: 30px;
+		padding: 0px 5px;
+	}
+	#ress_list li i.hover{
+		background: #f60;color: #fff;
+	}
+
+	#select{
+		text-align: left;text-indent: 10px;
+	}
+	#select select{
+		padding-right: 10px;
+	}
+	#select input,select{border-radius: 3px; padding-right: 10px;border: 1px solid #bbb;    border-radius: 3px; padding: 5px 8px;}
+
+	.ress_new_box_btn a{ width: 48%; margin-left: 1%;}
+	.ress_new_box_btn a:nth-child(1){
+		background: #ccc; border: 1px solid #aaa;
+	}
+	.invite{
+		display: inline;
+		line-height: 27px;
+		height: auto;
+		word-break: break-all;
+		word-wrap: break-word;
+		margin-left: 10px;
+		margin-right: 10px;	
+	}
+	
+	
+</style>
+
+<section class="clearfix g-member R-content">
+    <div class="m-round m-member-nav">
+	    <ul>	
+			<li>1元就能买IPhone 4S哦，快去看看吧！</li>		
+			<li  class="invite">{WEB_PATH}/register/{wc:$uid}</li>		
+	    </ul>
+	
+		
+    </div>
+		<div id="divInviteInfo" class="get-tips gray01" style="">成功邀请 <span class="orange">{wc:$involvedtotal}</span> 位会员注册，已有 <span class="orange">{wc:$involvednum}</span> 位会员参与云购</div>
+            <div id="divList" class="list-tab SuccessCon"><ul class="listTitle"><li class="w200">用户名</li><li class="w200">时间</li><li class="w200">邀请编号</li><li class="w200">消费状态</li></ul>
+                {wc:if $involvedtotal!=0}
+                {wc:loop $invifriends $key $val}
+                <ul><li class="w200">  <a href="{WEB_PATH}/uname/{wc:fun:idjia($val['uid'])}" target="_blank" class="blue">{wc:$val['sqlname']}</a></li>
+                    <li class="w200">{wc:fun:date('Y.m.d H:i:s',$val['time'])}</li>
+                    <li class="w200">{wc:fun:idjia($val['uid'])}</li>
+                    <li class="w200">{wc:$records[$val['uid']]}</li>
+                </ul>
+                {wc:loop:end}
+                {wc:else}
+                <div class="tips-con"><i></i>您还未有邀请谁哦</div>
+			{wc:if:end}   
+		</div>
+    
+</section>
+
+{wc:templates "index.footer"}

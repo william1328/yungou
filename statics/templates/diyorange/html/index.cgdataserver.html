@@ -1,0 +1,431 @@
+{wc:templates "index.header"}
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/goods.css"/>
+<body>
+<div class="clear"></div>
+<div class="wrap w1200">
+	<div class="Current_nav w1200">
+		<a href="index.html">首页</a> &gt; 
+		<a href="index.html">平板电脑</a> &gt;
+		<a href="index.html">苹果</a> &gt;
+		商品详情
+	</div>
+	<div class="show_content">
+		<div id="divPeriodList" class="show_Period" style="max-height:41px;">
+			<div class="period_Open">
+				<a class="gray02" href="javascript:;" id="btnOpenPeriod" click="off" >全部<i></i></a>
+			</div>
+		<ul class="Period_list bb_gray">
+		<li class="now"><a href="{wc:$cgoods_url0}" class="{wc:$style0}" >第{wc:$itemlist0['qishu']}期<b>进行中<span class="dotting"></span></b></a></li>
+		{wc:loop $itemlist $qitem} 
+		{wc:if $qitem['key']%9==0}
+		</ul><ul class="Period_list bb_gray">
+		{wc:if:end}
+		<li><a href="{wc:$qitem['cgoods_url']}" class="{wc:$qitem['style']} {wc:$qitem['stylea']} ">第{wc:$qitem['qishu']}期<i></i></a></li>
+		{wc:loop:end}
+		</ul>
+		</div>	
+<!--显示期数start-->
+		<div class="ng-main clearfix" style="display:none;">
+			<div class="ng-period">
+				<div class="ng-period-inner">
+					<div class="select-wrap">
+						<div class="input-wrapper"> 
+							<div class="label">直达第</div>
+							<div class="inp"><input id="txtPeriod" maxlength="7" placeholder="请输入"></div>
+							<div class="unit">期</div>
+							<a id="btnGo" href="javascript:;" class="fly ng-result-bg transparent-png"></a> 
+						</div>
+					</div>
+					<div class="ng-pt jspScrollable" style="padding: 0px; width: 1169px;">
+						<div class="jspContainer">
+							<div class="jspPane" style="padding: 0px; width: 1125px; top: 0px;">
+								<ul class="ng-pt-inner clearfix">
+								<li class="current"><a href="{wc:$cgoods_url0}">第{wc:$itemlist0['qishu']}期<b>进行中<span class="dotting"></span></b></a></li>
+								{wc:loop $itemlist $qitem} 
+								<li><a href="{wc:$qitem['cgoods_url']}" >第{wc:$qitem['qishu']}期<i></i></a></li>
+								{wc:loop:end}
+								</ul>								
+							</div>
+							<div class="jspVerticalBar">
+								<div class="jspCap jspCapTop"></div>
+								<div class="jspTrack" style="height: 333px;">
+									<div class="jspDrag" style="height: 158px; top: 0px;">
+										<div class="jspDragTop"></div>
+										<div class="jspDragBottom"></div>
+									</div>
+								</div>
+								<div class="jspCap jspCapBottom"></div>
+							</div>
+
+						</div>
+					</div>
+					<a id="a_close" href="javascript:;"  click="off"  class="ng-frame-close ng-result-bg transparent-png"></a>
+				</div>
+			</div>
+		</div>		
+<!--显示期数end -->
+		<div class="Pro_Details">
+			<!-- 正在倒计时 开始 -->
+			<div style="display:none">
+				<div class="ng-goods-img">
+					<div class="ng-middle-box">
+						<img src="./images/20140910144704643.jpg" width="343" height="343">
+					</div>
+					<div class="ng-goods-piclist">
+						<div class="ng-list-wrapper">
+							<ul class="ng-list-inner clearfix">
+								<li class=""><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+								<li class=""><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+								<li class=""><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+								<li class=""><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+								<li class="current"><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+								<li class=""><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+							</ul>
+						</div>
+					</div>
+					<div class="ng-share-out">
+						<a id="a_sc" href="javascript:;" class="sc"><i class="t-icon sc-icon ng-box-bg"></i>关注</a>
+						<div class="fx">
+							<div class="fx-txt">
+	                            <i class="t-icon fx-icon ng-box-bg"></i>分享
+	                        </div>
+	                        <div class="fx-out-inner">
+	                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	                            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	                            <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	                        </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 正在倒计时 结束 -->
+
+			<!-- 正在进行中 开始 -->
+			<div style="display:none;">	
+				<div class="ng-goods-img">
+					<div class="ng-middle-box">
+						<img src="./images/20140910144704643.jpg" width="343" height="343">
+					</div>
+					<div class="ng-goods-piclist">
+						<div class="ng-list-wrapper">
+							<ul class="ng-list-inner clearfix">
+								<li class=""><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+								<li class=""><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+								<li class=""><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+								<li class=""><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+								<li class="current"><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+								<li class=""><img width="40" height="40" src="./images/20140910144704643.jpg"></li>
+							</ul>
+						</div>
+					</div>
+					<div class="ng-share-out">
+						<a id="a_sc" href="javascript:;" class="sc"><i class="t-icon sc-icon ng-box-bg"></i>关注</a>
+						<div class="fx">
+							<div class="fx-txt">
+	                            <i class="t-icon fx-icon ng-box-bg"></i>分享
+	                        </div>
+	                        <div class="fx-out-inner">
+	                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	                            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	                            <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	                        </div>
+						</div>
+					</div>
+				</div>			
+
+				<!-- 正在进行中 结束 -->
+			</div>
+			<!-- 正在进行中 结束 -->
+
+
+
+			<!-- 已经揭晓  开始 -->
+			<div class="ng-result-wrapper clearfix ">				
+				<div class="ng-result-img">
+					<div class="result-img-wrapper">
+	                    <a href="" title="{wc:$item['g_title']}">
+	                    <img width="242" height="242" alt="{wc:$item['g_title']}" src="{G_UPLOAD_PATH}/{wc:$item['g_thumb']}"></a>
+	                </div>
+					 {wc:m=cloud_goods mod=cloud_goodslastone($item['gid']) return=lastone} 
+						
+	                <a href="{WEB_PATH}/cgoods/{wc:$lastone['id']}" class="result-more">查看商品详情</a>
+				</div>
+				<div class="ng-result-detail">
+					<div class="result-con-wrapper">
+						<h2 class="title"><span class="nums">(第{wc:$item['qishu']}期)</span>{wc:$item['g_title']}</h2>
+						<p class="price">价值：{wc:fun:sprintf("%.2f",$item['zongrenshu']*$item['price'])}{wc:fun:L('cgoods.currency')} </p>
+						<div class="result-main">
+							<div class="result-con-info">
+	                            <p class="r-name">
+	                                <span><a href="{WEB_PATH}/uname/{wc:fun:idjia($item['q_uid'])}" target="_blank" title="{wc:fun:get_user_name($q_user)}">{wc:fun:get_user_name($q_user)}</a></span>(<em>{wc:fun:get_ip(Getuserinfo($item['q_uid'],'user_ip'),'ipcity')}</em>)
+	                            </p>
+	                            <p>本云参与：<span class="r-num">{wc:$user_shop_number}</span>人次<a id="a_luckynum" href="javascript:;" class="r-look">点击查看</a></p>
+	                            <p>揭晓时间：<span>{wc:fun:microt($item['q_end_time'],'r')}</span></p>
+	                            <p>{wc:fun:L('html.key')}时间：<span>{wc:fun:microt($user_shop_time,'r')}</span></p>
+	                            <div class="result-head-pic">
+								<a rel="nofollow" href="{WEB_PATH}/uname/{wc:fun:idjia($item['q_uid'])}" target="_blank" title="{wc:fun:get_user_name($q_user)}" class="ng-result-head transparent-png">
+	                                <div class="rh-wrap">
+									{wc:if get_user_key($item['q_uid'],'img','160160')=='null'}
+									<img src="{wc:fun:getimgshow('photo/member.jpg.160160.jpg')}" border="0" width="110" height="110">
+									{wc:else}
+									<img src="{wc:fun:getimgshow(Getuserimg($item['q_uid']))}.160160.jpg" border="0" width="110" height="110">             
+									{wc:if:end}					
+									</div>
+								</a>	
+									<a rel="nofollow" href="{WEB_PATH}/uname/{wc:fun:idjia($item['q_uid'])}" target="_blank" title="{wc:fun:get_user_name($q_user)}" class="ng-result-head transparent-png"><span class="name">获得者</span></a>
+	                            </div>
+	                        </div>
+	                        <div class="result-con-code">
+	                            <p class="code-name">— 幸运云购码 —</p>
+	                            <span class="code-num">{wc:$item['q_user_code']}</span>
+	                        </div>
+						</div>
+						<div class="result-how">
+	                        <h6>如何计算?</h6>
+	                        <p>1、取该商品最后购买时间前网站所有商品的最后100条购买时间记录；</p>
+	                        <p>2、按时、分、秒、毫秒排列取值之和，除以该商品总参与人次后取余数；</p>
+	                        <p>3、余数加上10000001 即为“幸运云购码”；</p>
+	                        <p>4、余数是指整数除法中被除数未被除尽部分， 如7÷3 = 2 ......1，1就是余数。</p>
+	                    </div>
+					</div>
+				</div>
+				<div class="ng-result-select">
+	                <ul class="r-select">
+	                    <li>
+						{wc:m=orangetemp mod=CloudQishu($item['gid'],$item['qishu']+1) return=preone} 
+						{wc:if $preone}
+	                         <a href="{WEB_PATH}/cgoods/{wc:$preone['id']}">
+						{wc:else}
+							<a href="{WEB_PATH}/cgoods/{wc:$item['id']}">
+						{wc:if:end}
+							 <i class="ng-result-bg up transparent-png"></i><span></span>
+							 </a>	                   
+					   </li>
+	                    <li>
+						{wc:m=orangetemp mod=CloudQishu($item['gid'],$item['qishu']-1) return=nextone} 
+						{wc:if $nextone}
+	                         <a href="{WEB_PATH}/cgoods/{wc:$nextone['id']}">
+						{wc:else}
+							<a href="{WEB_PATH}/cgoods/{wc:$item['id']}">
+						{wc:if:end}
+	                        <i class="ng-result-bg down transparent-png"></i><span></span></a>
+	                    </li>
+	                </ul>
+	            </div>
+			</div>
+			<!-- 已经揭晓  结束 -->
+
+
+			
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<!--商品详情 开始-->
+<div class="ProductTabNav w1200 mt10">
+	<div id="divProductNav" class="DetailsT_Tit">
+		<div class="DetailsT_TitP">
+			<ul>				
+				<li class="Product_DetT DetailsTCur"><span class="DetailsTCur">计算详情</span></li>
+				<li id="liUserBuyAll" class="All_RecordT "><span class="">所有参与记录</span></li>
+				<li class="Single_ConT"><span class="">晒单</span></li>
+			</ul>
+				
+		</div>
+	</div>
+	<div id="divCalResult" class="Product_Content" name="div_tab">
+			<div class="ng-data-inner" >
+
+			<div class="ng-data-detail">
+				<div class="ng-data-step">
+				{wc:if !$item['q_content']}	
+					<p class="title">由于网站还未满100条购买记录。所以按照 10000001 + (揭晓时间求和结果*100/参与人数) 的余数 即为“幸运云购码”。</p>												
+					<div class="step">
+						<ul class="step-inner clearfix">
+							<li class="s-r1"><p>计算结果</p></li>
+							<li class="s-t">=</li>
+							<li class="s-t">(</li>
+							<li class="s-r2"><p>{wc:$item['q_counttime']*100}</p><span>揭晓时间求和结果*100</span></li>
+							<li id="li_mod" class="s-t mod"><i>%</i><span class="txt">(取余)</span></li>
+							<li class="s-r3"><p>{wc:$item['canyurenshu']}</p><span>总需参与人次</span></li>
+							<li class="s-t">)</li>
+							<li class="s-t">+</li>
+							<li class="s-r4"><p>10000001</p><span>固定数值</span></li>
+							<li class="s-t">=</li>
+							<li class="s-r5"><p>{wc:$item['q_user_code']}</p><span>最终计算结果</span></li>
+						</ul>
+					</div>
+					<div class="ng-mod-wrapper" style="display:none">
+						<div class="ng-mod-inner">
+							<p>余数是指整数除法中被除数未被除尽部分,<br>如7÷3 = 2 ......1，1就是余数。</p>
+						</div>
+						<i class="s"><i class="s"></i></i>
+					</div>
+				</div>
+				{wc:else}
+				<div class="ng-data-info">
+					<div class="ng-data-head">
+						<span class="time">云购时间</span>
+						<span class="data">转换数据</span>
+						<span class="user">会员</span>
+						<span class="nums">参与人次</span>
+						<span class="product">商品名称</span>
+					</div>
+				</div>
+					<p class="title">截止该商品最后购买时间【{wc:fun:date("Y-m-d H:i:s",$item['q_end_time']).".".substr($item['q_end_time'],0,3)}】网站所有商品的最后100条购买时间(时、分、秒、毫秒)记录</p>				
+					<div class="step">
+						<ul class="step-inner clearfix">
+							<li class="s-r1"><p>计算结果</p></li>
+							<li class="s-t">=</li>
+							<li class="s-t">(</li>
+							<li class="s-r2"><p>{wc:$item['q_counttime']}</p><span>以下100条时间取值之和</span></li>
+							<li id="li_mod" class="s-t mod"><i>%</i><span class="txt">(取余)</span></li>
+							<li class="s-r3"><p>{wc:$item['canyurenshu']}</p><span>总需参与人次</span></li>
+							<li class="s-t">)</li>
+							<li class="s-t">+</li>
+							<li class="s-r4"><p>10000001</p><span>固定数值</span></li>
+							<li class="s-t">=</li>
+							<li class="s-r5"><p>{wc:$item['q_user_code']}</p><span>最终计算结果</span></li>
+						</ul>
+						<div class="ng-result-bg equals transparent-png"></div>
+					</div>
+					<div class="ng-mod-wrapper" style="display:none">
+						<div class="ng-mod-inner">
+							<p>余数是指整数除法中被除数未被除尽部分,<br>如7÷3 = 2 ......1，1就是余数。</p>
+						</div>
+						<i class="s"><i class="s"></i></i>
+					</div>
+				</div>				
+				<div   id="div_showcontent"  class="ng-table-wrapper">
+					<div class="ng-table-inner" style="max-height:322px;">
+						<ul class="ng-table-ul clearfix">
+						{wc:loop $item['q_content'] $record}	
+						<li>
+							<span class="time"><b>{wc:fun:date("Y-m-d",$record['otime'])}</b>{wc:fun:date("H:i:s",$record['otime'])}.{wc:$record['otime0']}</span>
+							<span class="code">{wc:$record['otime_add']}</span>
+							<span class="name"><a href="{WEB_PATH}/uname/{wc:fun:idjia($record['ouid'])}" target="_blank">{wc:fun:get_user_name($record['ouid'])}</a></span>
+							<span class="nums">{wc:$record['onum']}人次</span>
+							<span class="pro"><a  href="{WEB_PATH}/cgoods/{wc:$record['ogid']}" target="_blank">（第{wc:$record['oqishu']}期）{wc:$record['g_title']}</a></span>
+						</li>
+						{wc:loop:end}	
+							<div class="ng-table-bg01 transparent-png"></div>
+							<div class="ng-table-bg02 transparent-png"></div>
+							<div class="ng-table-bg03 ng-result-bg transparent-png"></div>
+						</ul>
+					</div>
+					<div id="div_showmore" click="off" class="ng-see-more"><span>展开全部100条数据<b><s></s></b></span></div>
+				</div>
+				{wc:if:end}
+			</div>
+		</div>
+	</div>
+
+		<!--所有参与记录 开始-->
+		<div class="AllRecord_Content Product_Content"  >
+			<div name="div_tab" id="bitem" class="AllRecordCon hide" style="display:none;">
+				<iframe id="iframea_bitem" g_src="{WEB_PATH}/index/cloud_goods/go_record_iframe/{wc:$item[id]}/20" style="width:1100px; border:none;height:100%" frameborder="0" scrolling="no"></iframe>		
+			</div>				
+		</div>
+		<!--所有参与记录 结束-->
+
+		<!-- 晒单 开始 -->
+		<div name="div_tab" id="divPost"   class="Single_Content Product_Content" style="display:none;">
+			<iframe id="iframea_divPost" g_src="{WEB_PATH}/index/share/share_iframe/{wc:$item[id]}" style="width:1100px; border:none;height:100%" frameborder="0" scrolling="no"></iframe>
+		</div>		
+		<!-- 晒单 结束 -->
+
+	</div>
+</div>
+<script>
+$(function(){
+	var gotonumtag=$("#txtPeriod");
+	var gotonum=parseInt(gotonumtag.val());
+	var sum={wc:fun:count($itemlist)}+1;
+	$("#txtPeriod").focus(function(){
+		$(this).attr("placeholder","");
+	});
+	$("#txtPeriod").blur(function(){
+		$(this).attr("placeholder","请输入");	
+	});
+	$("#btnGo").click(function(){
+		if(!isNaN(gotonum)){
+			alert(1);
+			window.location.href="{WEB_PATH}/cgoods/"+gotonum;
+		}else{
+		
+		}
+	});
+	gotonumtag.keyup(function(){
+		alert(1);
+		if(isNaN(gotonum)){					
+			gotonumtag.val(1);
+		}else{
+		alert(gotonum);
+		alert(sum);
+			if(gotonum>sum){
+				gotonumtag.val(sum);
+			}
+		}
+	});	
+});
+
+
+$("#btnOpenPeriod").click(function(){
+	if($(this).attr("click")=='off'){
+		$('.ng-main').show();		
+		$('.Period_list').hide();		
+		$('.Pro_Details').hide();		
+	}else{
+		$('.ng-main').hide();
+		$('.Period_list').show();
+		$('.Pro_Details').show();			
+	}			
+});
+$("#a_close").click(function(){
+	if($(this).attr("click")=='off'){
+		$('.ng-main').hide();		
+		$('.Period_list').show();
+		$('.Pro_Details').show();			
+	}else{
+		$('.ng-main').show();
+		$('.Period_list').hide();
+		$('.Pro_Details').hide();	
+	}			
+});
+$("#div_showmore").click(function(){
+		var ui_obj = $("#div_showcontent ul li");
+		if($(this).attr("click")=='off'){
+			$(".ng-table-inner").css("max-height",ui_obj.length*45+"px");	
+			$(this).attr("click","on");
+			$(this).html("收起<s></s>");			
+		}else{
+			$(".ng-table-inner").css("max-height","322px");	
+			$(this).attr("click","off");
+			$(this).html("展开全部100条数据<i></i>");
+		}			
+});
+function set_iframe_height(fid,did,height){
+	$("#"+fid).css("height",height);
+}
+
+$(function(){
+var fouli=$(".DetailsT_TitP ul li");
+var divCalResult =  $("div[name='div_tab']");
+	fouli.click(function(){		   
+		var index=fouli.index(this);
+		fouli.removeClass("DetailsTCur").eq(index).addClass("DetailsTCur");
+		var iframe = divCalResult.hide().eq(index).find("iframe");
+			if (typeof(iframe.attr("g_src")) != "undefined") {
+			  	 iframe.attr("src",iframe.attr("g_src"));
+				 iframe.removeAttr("g_src");
+			}
+			
+		divCalResult.hide().eq(index).show();
+	}); 
+});	
+</script>
+{wc:templates "index.footer"}

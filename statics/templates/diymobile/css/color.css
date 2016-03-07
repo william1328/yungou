@@ -1,0 +1,167 @@
+@charset "utf-8";
+.header {
+  background: #47C04B;
+  border-bottom: 1px solid #36B43A;
+}
+.z-Home, .z-Member, .z-shop, a.z-Site {
+  background-color: #47C04B;
+  border: 1px solid #36B43A;
+  box-shadow: 1px 1px 1px #319534 inset;
+}
+.z-shop em {
+background: #47C04B;
+border: 1px solid #fff;
+color: #47C04B;
+color: #fff;
+box-shadow: 0 1px 1px #319534;
+}
+.u-nav .g-snav-lst a.nav-crt {
+  background: #47C04B;
+  color: #fff;
+  box-shadow: 1px 1px 1px #319534 inset;
+}
+.focus .hd ul .on{ background:#47C04B;  }
+.m-tt1 a {
+  color: #47C04B;
+}
+.m-lott-conduct p {
+  color: #47C04B;
+  background: #E4FBE4;
+}
+.u-progress .pging {
+  background: #47C04B;
+}
+.Progress-bar .Pro-bar-li li.P-bar01 em {
+  color: #47C04B;
+}
+.orange {
+	color:#47C04B;
+}
+.goodsList .goodsListR a.add {
+  background-color: #47C04B;
+}
+.goodsNav li.current a {
+  color: #47C04B;
+  border-bottom: 2px solid #47C04B;
+}
+.g-header h2 {
+  color: #fff;
+  text-shadow: 1px 1px 0 #319534;
+}
+.g-header {
+  background: #47C04B;
+  border-bottom: 1px solid #36B43A;
+}
+.pResults p a {
+  color: #fff;
+  background: #47C04B;
+}
+.pOngoing span {
+  background: #47C04B;
+  color: #fff;
+  border: 1px solid #47C04B;
+}
+.pOngoing {
+  color: #47C04B;
+}
+.pNav ul.slides li.bg_red a {
+  color: #47C04B;
+}
+.pSurplus span {
+  background: #47C04B;
+  color: #fff;
+  border: 1px solid #47C04B;
+}
+.pSurplus em {
+  color: #47C04B;
+}
+.pBtn a.buyBtn {
+  background: #47C04B;
+  border: 1px solid #47C04B;
+}
+.pBtn a.addBtn {
+  background: #FDA700;
+  border: 1px solid #FDA700;
+}
+a.orgBtn {
+  background: #47C04B;
+  border: 1px solid #36B43A;
+}
+a.z-Recharge-btn {
+  color: #fff;
+  border: 1px solid #36B43A;
+  box-shadow: 0 1px 2px #319534;
+  background: #47C04B;
+}
+.m_listNav .z-sgl-crt a {
+  color: #47C04B;
+  border-bottom: 2px solid #47C04B;
+}
+.m-userMoneyNav li a.z-MoneyNav-crt01 {
+  background: #fff;
+  border-bottom: 2px solid #47C04B;
+}
+.m-userMoneyNav li a.z-MoneyNav-crt01 b, .m-userMoneyNav li a.z-MoneyNav-crt02 b {
+  color: #47C04B;
+}
+.g-Recharge li a.z-sel {
+  border: 1px solid #47C04B;
+  color: #666;
+}
+.z-bank-Roundsel s {
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#47C04B),color-stop(1,#47C04B));
+}
+.m-share-btn .z-btn-mood {
+  background: #47C04B;
+  border: 1px solid #47C04B;
+  color: #fff;
+}
+.m-share-btn .z-btn-mood, .m-share-btn .z-btn-comment, .m-share-btn .z-btn-Share {
+  background: #fff;
+  border: 1px solid #C2C2C2;
+  color: #47C04B;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+[07-Mar-2016 12:00:42 Asia/Shanghai] PHP Warning:  Invalid argument supplied for foreach() in D:\phpStudy2014\WWW\yg\system\modules\admin\goods.action.php on line 61
+[07-Mar-2016 12:00:45 Asia/Shanghai] PHP Warning:  Invalid argument supplied for foreach() in D:\phpStudy2014\WWW\yg\system\modules\admin\goods.action.php on line 61
+[07-Mar-2016 12:00:47 Asia/Shanghai] PHP Warning:  Invalid argument supplied for foreach() in D:\phpStudy2014\WWW\yg\system\modules\admin\goods.action.php on line 61
+[07-Mar-2016 12:00:54 Asia/Shanghai] PHP Warning:  Invalid argument supplied for foreach() in D:\phpStudy2014\WWW\yg\system\modules\admin\goods.action.php on line 356
+[07-Mar-2016 12:02:17 Asia/Shanghai] PHP Warning:  Invalid argument supplied for foreach() in D:\phpStudy2014\WWW\yg\system\modules\admin\order.action.php on line 90
+[07-Mar-2016 12:02:18 Asia/Shanghai] PHP Warning:  Invalid argument supplied for foreach() in D:\phpStudy2014\WWW\yg\system\modules\admin\goods.action.php on line 61
+[07-Mar-2016 12:03:08 Asia/Shanghai] PHP Warning:  Invalid argument supplied for foreach() in D:\phpStudy2014\WWW\yg\system\plugin\Manager\manager.php on line 331
+[07-Mar-2016 12:04:13 Asia/Shanghai] PHP Warning:  Invalid argument supplied for foreach() in D:\phpStudy2014\WWW\yg\system\modules\admin\goods.action.php on line 61

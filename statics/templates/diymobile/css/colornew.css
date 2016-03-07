@@ -1,0 +1,221 @@
+@charset "utf-8";
+
+主色调\字体\深色按钮border #47C04B#47C04B
+按钮浅色        #E5F5E6#E5F5E6
+按钮浅色border      #D3F5D5#D3F5D5
+按钮浅色hover     #CEFACF#CEFACF
+按钮深色hover     #3CB343#3CB343
+
+.g-Total-bt .orgBtn{
+  background: #FF6600;border: 1px solid #FF6600;
+}
+.infoResult dl {
+  background: #FF4400;
+  color: #fff;
+}
+.result2 li {
+  background: #FFB320;
+  border-top: 1px solid #FDA700;
+}
+.infoCount {
+  background: #FF6600;
+  border-top: 1px solid #FF4400;
+}
+.infoCount2 li {
+  border-top: 1px solid #FF4400;
+}
+.z-btn-mood {
+  background: #FF6600;
+  border: 1px solid #FF6600;
+  color: #fff;
+}
+#z-btn-moods {
+  background: #FF6600;
+  border: 1px solid #FF6600;
+  color: #fff;
+}
+.grayBtn, .orgBtn{
+  background: #FF6600;border: 1px solid #FF6600;
+}
+.u-Btn a.z-CloseBtn{
+  background: #FF6600;
+  color: #fff;
+}
+.u-Btn a.z-DefineBtn{
+  background:#FFB320;
+  color:#FF6600;
+  border:solid 1px #FDA700;
+}
+.f-Recharge-btn .orgBtn{
+   background: #FF6600;border: 1px solid #FF6600;
+}
+
+
+
+
+.header {
+  background: #FF6600;
+  border-bottom: 1px solid #36B43A;
+}
+.z-Home, .z-Member, .z-shop, a.z-Site {
+  background-color: #FF6600;
+  border: 1px solid #36B43A;
+  box-shadow: 1px 1px 1px #319534 inset;
+}
+.z-shop em {
+background: #FF6600;
+border: 1px solid #fff;
+color: #FF6600;
+color: #fff;
+box-shadow: 0 1px 1px #319534;
+}
+.u-nav .g-snav-lst a.nav-crt {
+  background: #FF6600;
+  color: #fff;
+  box-shadow: 1px 1px 1px #319534 inset;
+}
+.focus .hd ul .on{ background:#FF6600;  }
+.m-tt1 a {
+  color: #FF6600;
+}
+.m-lott-conduct p {
+  color: #FF6600;
+  background: #E4FBE4;
+}
+.u-progress .pging {
+  background: #FF6600;
+}
+.Progress-bar .Pro-bar-li li.P-bar01 em {
+  color: #FF6600;
+}
+.orange {
+	color:#FF6600;
+}
+.goodsList .goodsListR a.add {
+  background-color: #FF6600;
+}
+.goodsNav li.current a {
+  color: #FF6600;
+  border-bottom: 2px solid #FF6600;
+}
+.g-header h2 {
+  color: #fff;
+  text-shadow: 1px 1px 0 #319534;
+}
+.g-header {
+  background: #FF6600;
+  border-bottom: 1px solid #36B43A;
+}
+.pResults p a {
+  color: #fff;
+  background: #FF6600;
+}
+.pOngoing span {
+  background: #FF6600;
+  color: #fff;
+  border: 1px solid #FF6600;
+}
+.pOngoing {
+  color: #FF6600;
+}
+.pNav ul.slides li.bg_red a {
+  color: #FF6600;
+}
+.pSurplus span {
+  background: #FF6600;
+  color: #fff;
+  border: 1px solid #FF6600;
+}
+.pSurplus em {
+  color: #FF6600;
+}
+.pBtn a.buyBtn {
+  background: #FF6600;
+  border: 1px solid #FF6600;
+}
+.pBtn a.addBtn {
+  background: #FDA700;
+  border: 1px solid #FDA700;
+}
+a.orgBtn {
+  background: #FF6600;
+  border: 1px solid #36B43A;
+}
+a.z-Recharge-btn {
+  color: #fff;
+  border: 1px solid #36B43A;
+  box-shadow: 0 1px 2px #319534;
+  background: #FF6600;
+}
+.m_listNav .z-sgl-crt a {
+  color: #FF6600;
+  border-bottom: 2px solid #FF6600;
+}
+.m-userMoneyNav li a.z-MoneyNav-crt01 {
+  background: #fff;
+  border-bottom: 2px solid #FF6600;
+}
+.m-userMoneyNav li a.z-MoneyNav-crt01 b, .m-userMoneyNav li a.z-MoneyNav-crt02 b {
+  color: #FF6600;
+}
+.g-Recharge li a.z-sel {
+  border: 1px solid #FF6600;
+  color: #666;
+}
+.z-bank-Roundsel s {
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#FF6600),color-stop(1,#FF6600));
+}
+.m-share-btn .z-btn-mood {
+  background: #FF6600;
+  border: 1px solid #FF6600;
+  color: #fff;
+}
+.m-share-btn .z-btn-mood, .m-share-btn .z-btn-comment, .m-share-btn .z-btn-Share {
+  background: #fff;
+  border: 1px solid #C2C2C2;
+  color: #FF6600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

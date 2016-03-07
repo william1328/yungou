@@ -1,0 +1,138 @@
+{wc:fun:css("Lottery")}
+{wc:templates "index.header"}
+<!--商品 wrap 开始-->
+<div class="wrap w1200"style="overflow:hidden;margin-top:5px;">
+	<div class="g-lottery-part1 clrfix">
+		<div class="m-lottery-title">
+			<div class="fl">
+				<em>最新揭晓</em>
+				<i></i>
+			</div>
+			<div class="fr">
+				<span class="gray9">截至目前共揭晓商品<b class="orange" id="lotteryCount">xxxxx</b>个</span>
+			</div>
+		</div>
+		<div class="m-lott-menu">
+			<ul>
+			<li class=""><a href="/lottery/m1.html" title="全部">全部</a></li>		
+				{wc:loop array_reverse(GetCate('0',7,5)) $v}
+					<li class=""><a href="{WEB_PATH}/cgoods_list/{wc:$v['cateid']}_0_0" title="手机数码">{wc:$v['name']}</a></li>
+				{wc:loop:end}
+			</ul>
+		</div>
+	</div>	
+	<div class="W-left fl" style="padding:0;width:1201px">	
+	<div id="b_pink" class="g-lottery-part2 clrfix">
+		{wc:loop $cglotterylist $lotterylist}
+		<div class="m-lottery-list" type="isRaff">
+		<ul><li class="f-lott-comm"><a href="{WEB_PATH}/cgdataserver/{wc:$lotterylist['id']}" target="_blank" title="(第{wc:$lotterylist['qishu']}期){wc:$lotterylist['g_title']}">
+		<img src="{wc:fun:getimgshow($lotterylist['g_thumb'])}"></a>
+		</li>
+		<li class="f-lott-detailed"><div class="u-user-info"><p class="fl">
+		<a href="{WEB_PATH}/uname/{wc:fun:idjia($lotterylist['q_uid'])}" target="_blank" title="15158****85">
+		{wc:if get_user_key($lotterylist['q_uid'],'img','8080')=='null'}
+		<img id="imgUserPhoto" src="{wc:fun:getimgshow('photo/member.jpg.8080.jpg')}" width="50" height="50" border="0">
+		{wc:else}
+		<img id="imgUserPhoto" src="{wc:fun:getimgshow(Getuserimg($lotterylist['q_uid']))}.8080.jpg" width="50" height="50" border="0">
+		{wc:if:end} 	
+		</a></p>
+		<dl class="fl"><dt><em>获得者：</em>
+		<span><a href="{WEB_PATH}/uname/{wc:fun:idjia($lotterylist['q_uid'])}" target="_blank" title="15158****85">{wc:fun:get_user_name($lotterylist['q_user'])}</a></span></dt>
+		<dd class="z-lott-lz">来自：浙江省</dd><dd>幸运云购码：<strong class="orange">{wc:$lotterylist['q_user_code']}</strong></dd><dd>本云参与：
+		<i class="orange">{wc:$lotterylist['onum']}</i>人次</dd></dl></div><div class="u-comm-info"><dl>
+		<dt><a href="{WEB_PATH}/cgdataserver/{wc:$lotterylist['id']}" target="_blank" title="(第{wc:$lotterylist['qishu']}期){wc:$lotterylist['g_title']}">(第{wc:$lotterylist['qishu']}期){wc:$lotterylist['g_title']}</a></dt>
+		<dd>商品价值：{wc:fun:sprintf("%.2f",$lotterylist['zongrenshu']*$lotterylist['price'])}{wc:fun:L('cgoods.currency')}</dd><dd>揭晓时间：{wc:fun:microt($lotterylist['q_end_time'],'r')}</dd><dd class="z-lott-btn"><span>
+		<a href="{WEB_PATH}/cgdataserver/{wc:$lotterylist['id']}" target="_blank" title="查看详情">查看详情</a>
+		</span></dd></dl></div>
+		</li>
+		</ul>
+		</div>
+		{wc:loop:end}	
+		
+
+	<!---正在倒计时--->					
+	<script>
+	 var APP = {
+		  WEB_PATH : '{wc:WEB_PATH}',
+		  G_WEB_PATH : '{wc:G_WEB_PATH}',
+		  G_PARAM_URL : '{wc:G_PARAM_URL}'
+		};		
+	</script>		
+	<script type="text/javascript" src="{G_GLOBAL_STYLE}/global/js/jquery.BusyTime.js"></script>	
+	<script type="text/javascript" src="{G_GLOBAL_STYLE}/global/js/jquery.cmsapi.js"></script>	
+
+	<script>
+	$.YunCmsApi.Loop({
+		"timer"	  : 15000,
+		"callback": function(data){
+			var path='{WEB_PATH}';
+			var html= '';	
+			html+= '<div class="m-lottery-list m-lottery-anning" id="timeloop'+data.id+'">';			
+			html+= '<div class="cprint">';
+			html+= '<ul><li class="f-lott-comm"><a href="'+path+'/cgdataserver/'+data.id+'" target="_blank" title="adasdabsjd">';
+			html+= '<img  src="'+data.upload+'/'+data.thumb+'"></a></li>';
+			html+= '<li class="f-lott-detailed"><dl><dt>';
+			html+= '<a href="'+path+'/cgdataserver/'+data.id+'" target="_blank" title="(第'+data.qishu+'期)'+data.title+'">(第'+data.qishu+'期)'+data.title+'</a>';
+			html+= '</dt><dd>商品价值：'+data.money+data.currency+'</dd>';
+			html+= '<dd class="z-ymy">已满员</dd>';
+			html+= '<div class="z-jx-time"><p>揭晓倒计时</p><div class="z-jx-time busytime" pattern="<span>mm</span><em>:</em><span>ss</span><em>:</em><span>ms</span>" time="'+(new Date().getTime() + (data.times * 1000)) +'">99 : 99 : 99</div>';
+			html+= '</dl></li></ul><b class="transparent-png"></b></div>';
+			html+='</div>';	
+			var divl = $("#b_pink").find('li');
+			var len = divl.length;			
+			if(len==10 && len  >0){
+				var this_len = len - 1;
+				divl.eq(this_len).remove();
+			}		
+			$("#b_pink").prepend(html);
+			$("#timeloop"+data.id+" .busytime").busytime({
+				callback:function($dom){
+					$dom.find(".z-jx-time").html('<span class="minute">正在计算,请稍后…</span>');	
+					setTimeout(function(){
+					$.post(path+'/index/getshop/lottery_shop_getjson/',{gid:data.id},function(info){
+					var uhtml = '';	
+					uhtml+= '<div class="cprint">';	
+					uhtml+= '<div class="m-lottery-list" type="isRaff">';	
+					uhtml+= '<ul><li class="f-lott-comm"><a href="'+path+'/cgdataserver/'+info.id+'" target="_blank" title="(第{wc:$lotterylist['qishu']}期){wc:$lotterylist['g_title']}">';	
+					uhtml+= '<img src="'+info.upload+'/'+info.thumb+'"></a>';	
+					uhtml+= '</li>';	
+					uhtml+= '<li class="f-lott-detailed"><div class="u-user-info"><p class="fl">';	
+					uhtml+= '<a href="{WEB_PATH}/uname/'+path+'/uname/'+(1000000000 + parseInt(info.uid))+'" target="_blank" title="'+info.user+'">';	
+					if(info.uid){
+					uhtml+= '<img id="imgUserPhoto" src="'+info.upload+'/photo/member.jpg.8080.jpg" width="50" height="50" border="0">';
+					}else{
+					uhtml+= ' <img id="imgUserPhoto" src="'+info.upload+info.u_thumb+'" width="50" height="50" border="0">';					
+					}
+					uhtml+= '</a>';
+					uhtml+= '<s></s>';	
+					uhtml+= '</a></p>';	
+					uhtml+= '<dl class="fl"><dt><em>获得者：</em>';	
+					uhtml+= '<span><a href="'+path+'/uname/'+(1000000000 + parseInt(info.uid))+'" target="_blank" title="'+info.user+'">'+info.user+'</a></span></dt>';	
+					uhtml+= '<dd class="z-lott-lz">来自：浙江省</dd><dd>幸运云购码：<strong class="orange">'+info.q_user_code+'</strong></dd><dd>本云参与：';	
+					uhtml+= '<i class="orange">'+info.shopsum+'</i>人次</dd></dl></div><div class="u-comm-info"><dl>';	
+					uhtml+= '<dt><a href="'+path+'/cgdataserver/'+info.id+'" target="_blank" title="(第'+info.qishu+'期)'+info.title+'">(第'+info.qishu+'期)'+info.title+'</a></dt>';	
+					uhtml+= '<dd>商品价值：'+info.money+info.currency+'</dd><dd>揭晓时间：'+info.q_external_time+'</dd><dd class="z-lott-btn"><span>';	
+					uhtml+= '<a href="'+path+'/cgdataserver/'+info.id+'" target="_blank" title="查看详情">查看详情</a>';	
+					uhtml+= '</span></dd></dl></div>';	
+					uhtml+= '</li></ul></div>';	
+					uhtml+= '</div>';				
+					$("#timeloop"+data.id).html(uhtml);					
+					},'json');
+					},5000);
+				}
+			}).start();		
+			
+		}
+	});
+	</script>	
+	<!---正在倒计时--->					
+	</div>	
+	</div>
+		{wc:if $total>$num}
+		<div class="pagesx">{wc:page:two}</div>		
+		{wc:if:end}
+		</div>	
+</div>
+<!--商品 wrap 结束-->
+<div class="clear"></div>
+{wc:templates "index.footer"}

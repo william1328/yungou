@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="Shortcut Icon" href="{G_WEB_PATH}/favicon.ico">
+{wc:fun:seo()}
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/index.css"/>
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/Comm.css"/>
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/color.css"/>
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/css.css"/>
+<link rel="stylesheet" type="text/css" href="{G_TEMPLATES_STYLE}/css/myCart.css"/>
+{wc:fun:css()}
+<script type="text/javascript" src="{G_GLOBAL_STYLE}/global/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="{G_TEMPLATES_JS}/cloud-zoom.min.js"></script>
+<script type="text/javascript" src="{G_TEMPLATES_JS}/jquery.cookie.js"></script>
+{wc:fun:js()}
+{wc:fun:GetConfiga('verify')}
+</head>
+<body>
+<div id="loadingtime"></div>
+<div class="header">
+	<div class="site_top">
+		<div class="head_top w1190">
+			<ul class="collect fr">            
+                {wc:block name="onlinecustomer"}             				
+				<li class="fr"><a href="{WEB_PATH}/article-1.html">帮助</a><span>|</span></li>           
+				<li class="fr"><a href="{WEB_PATH}/member/account/userrecharge">快速充值</a><span>|</span></li>
+				<li class="fr yu_ff">
+					<a href="">我的{wc:fun:_cfg("web_name_two")}</a><span>|</span>
+					<div class="h_1yyg_eject">
+						<dl>							
+								{wc:loop login('list') $title=>$url}	
+									<dd><a href="{wc:$url}">{wc:$title}</a></dd>
+								{wc:loop:end}
+						</dl>
+					</div>					
+				</li>						
+				{wc:if $user=login('bool')}				
+				<li class="fr">欢迎您:<a href="{wc:$user['url']}">{wc:$user['name']}</a><span>|</span><a href="{WEB_PATH}/member/user/logout">[退出]</a><span>|</span></li>													
+				{wc:else}
+					{wc:loop login('view') $title=>$url}			
+						<li class="fr"><a href="{wc:$url}">{wc:$title}</a><span>|</span></li>
+					{wc:loop:end}
+				{wc:if:end}					
+			</ul>
+			<ul class="collect fl">
+				<li class="fl"><a href="javascript:;" onclick=AddFavorite(window.location,document.title)>收藏</a><span>|</span></li>
+				<li class="fl mobile" style="position:relative;"><a href="">手机{wc:fun:_cfg("web_name_two")}</a><s></s><span></span>
+					<div class="h_mobile">
+						<dl>
+							<li class="fl"><a href="">手机{wc:fun:_cfg("web_name_two")}</a><s></s><span></span></li>
+						</dl>
+                        {wc:if readapp(1)}
+                        {wc:loop  readapp(1) $weixin} 
+                        	<img src="{wc:fun:getimgshow($weixin['img'])}" width="75" height="75">
+						    <span>下载客户端</span>
+                        {wc:loop:end}    
+                        {wc:if:end}    
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="head_mid">
+		<div class="head_mid_bg w1190">
+			<h1 class="logo_yungou fl">
+				<a class="logo_1yyg_img" href="{WEB_PATH}" title="云购CMS — 惊喜无线">
+					<img src="{wc:fun:getimgshow(Getlogo())}" />
+				</a>
+			</h1>
+			<div class="head_search fl">
+				<input type="text" id="txtSearch" class="init" placeholder='输入"小米手机"试一试'/>
+				<a class="search_submit" id="butSearch" href="javascript:;" >
+					<i class="ico_search"></i>
+				</a>	
+			</div>
+			<div class="head_number">		
+				<div class="m-joinNum r">
+					<a href="{WEB_PATH}/index/index/cloud_gorecord" target="_blank">
+						<span class="qian text">已有</span>
+						{wc:if go_count_renci()}
+						{wc:loop go_count_renci() $v}
+						<span class="tnum" id="spBuyCount">{wc:$v}</span>
+						{wc:loop:end}
+						{wc:else}
+						<span class="tnum" id="spBuyCount">0</span>
+						{wc:if:end}
+						<span class="hou text">人次参加></span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--导航 header_nav 开始-->
+<div class="head_nav">
+	<div class="nav_center">
+		<div class="m_menu">
+			<div class="m_menu_all">
+                 <h3><a  href="{WEB_PATH}/cgoods_list/" target="_blank">全部商品分类</a>
+				 <em></em>
+				 </h3>
+				 
+             </div>
+			 <div class="m_all_sort"  id="m_all_sort">
+                    {wc:loop GetCate('0',6,5) $two_cate}
+                    <dl>		
+						<dt><a href="{WEB_PATH}/cgoods_list/{wc:$two_cate['cateid']}_0_0" target="_blank">{wc:$two_cate['name']}</a></dt>	
+						<dd>
+						{wc:loop $two_cate['sub_cate'] $headerbrand}
+							<a href="{WEB_PATH}/cgoods_list/{wc:$two_cate['cateid']}_0_0" target="_blank">{wc:$headerbrand['name']}</a>
+						{wc:loop:end}
+						</dd>		
+					</dl>
+                    {wc:loop:end}
+			 </div>
+		</div>
+		<ul class="nav_list">	
+		    <li class="sort-all-shouye" ><a href="{G_WEB_PATH}">首页</a></li>
+			{wc:loop Getheader('index','classstyle') $indexnav}
+			<li class="sort-all {wc:$indexnav['focus_urlstyle']}" >
+			<a href="{wc:$indexnav['url']}" target="{wc:$indexnav['url_target']}">{wc:$indexnav['name']}</a></li>
+			{wc:loop:end}		
+		</ul>	
+		<div class="mini_mycart" id="sCart">
+			<a href="{WEB_PATH}/member/cart/cartlist" class="cart"  target="_blank" id="sCartNavi">
+				<s></s>购物车(<span id="sCartTotal" class="">0</span>)
+			</a>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<style>
+.fixedNav{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	z-index:100000;
+	_position:absolute;
+	_top:expression(eval(document.documentElement.scrollTop));
+}
+</style>
+<!--导航 header_nav 结束-->
+<script>
+$(function(){
+  $(window).scroll(function() {	
+ 	{wc:if !isset($isindex) || $isindex!='Y'}	
+		if($(window).scrollTop()>=130&&$(window).scrollTop()<=560){
+			$(".head_nav").addClass("fixedNav");	
+			$("#m_all_sort").fadeOut();
+		}else if($(window).scrollTop()>560){
+			$(".head_nav").addClass("fixedNav");
+			$("#m_all_sort").fadeOut();
+	} else if($(window).scrollTop()<130){
+			$(".head_nav").removeClass("fixedNav");
+	}
+    {wc:else} 
+		if($(window).scrollTop()>=520){
+			$(".head_nav").addClass("fixedNav");
+			$("#m_all_sort").hide();
+	     $(".m_menu_all").mouseenter(function(){
+			    $(".m_all_sort").show();
+	     })
+		 $(".m_menu_all").mouseleave(function(){
+			    $(".m_all_sort").hide();
+	     })
+		 $(".m_all_sort").mouseenter(function(){
+			    $(this).show();
+	     })
+		 $(".m_all_sort").mouseleave(function(){
+			    $(this).hide();
+	     })
+		}	else if($(window).scrollTop()<520){
+			$(".head_nav").removeClass("fixedNav");
+			$("#m_all_sort").show();
+			  $(".m_menu_all").mouseenter(function(){
+				$("#m_all_sort").show();
+			  })
+			$(".m_menu_all").mouseleave(function(){
+				$("#m_all_sort").show();
+			  })
+			$(".m_all_sort").mouseenter(function(){
+			    $(this).show();
+	     })
+			$(".m_all_sort").mouseleave(function(){
+			    $(this).show();
+	     })
+		}	
+    {wc:if:end}
+  });
+});
+
+	$(document).ready(function(){
+		$.get("{WEB_PATH}/member/cart/getnumber/"+new Date().getTime(),function(data){
+			$("#sCartTotal").text(data);
+		});
+	});
+
+
+$(function(){
+	$("#txtSearch").focus(function(){
+		$("#txtSearch").css({background:"#fff"});
+		$(this).attr("placeholder","");
+	});
+	$("#txtSearch").blur(function(){
+		$("#txtSearch").css({background:"#FFF"});
+		$(this).attr("placeholder","输入'小米手机'试一试");	
+	});
+	$("#butSearch").click(function(){
+		var val1="小米手机"
+	    if($("#txtSearch").val()==""){
+			window.location.href="{WEB_PATH}/soso="+val1;
+		}else
+		if($("#txtSearch").val()==$("#txtSearch").val()){
+			window.location.href="{WEB_PATH}/soso="+$("#txtSearch").val();
+		}
+	});
+});
+
+	$(".yu_ff").mouseover(function(){
+	  $(".h_1yyg_eject").show();
+	})
+	$(".yu_ff").mouseout(function(){
+	  $(".h_1yyg_eject").hide();
+	})
+
+	{wc:if !isset($isindex) || $isindex!='Y'}
+	     $("#m_all_sort").hide();
+	     $(".m_menu_all").mouseenter(function(){
+			    $(".m_all_sort").show();
+	     })
+		 $(".m_menu_all").mouseleave(function(){
+			    $(".m_all_sort").hide();
+	     })
+		 $(".m_all_sort").mouseenter(function(){
+			    $(this).show();
+	     })
+		 $(".m_all_sort").mouseleave(function(){
+			    $(this).hide();
+	     })
+	{wc:if:end}
+	
+	//收藏
+	function AddFavorite(sURL, sTitle){
+		try
+		{
+			window.external.addFavorite(sURL, sTitle);
+		}
+		catch (e)
+		{
+			try
+			{
+				window.sidebar.addPanel(sTitle, sURL, "");
+			}
+			catch (e)
+			{
+				alert("您可以通过快捷键Ctrl+D进行添加");
+			}
+		}
+	}
+	
+	$(".mobile").mouseover(function(){
+		$(".h_mobile").show();
+		$(".h_mobile  s").css("background","../images/headbg11.png").css("background-position","5px -64px");
+	})
+	$(".h_mobile").mouseout(function(){
+		$(".h_mobile").hide();
+	})
+</script>

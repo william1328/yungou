@@ -1,0 +1,101 @@
+result_array (
+  0 => 
+  stdClass::__set_state(array(
+     'Photo' => 'http://www.yungoucms.com/uploads/image/20160125/1453717923.png',
+     'Name' => '充值抽奖',
+     'Author' => 'gao1631351268671@163.com',
+     'Version' => '充值抽奖',
+     'Money' => '0.00',
+     'Free' => '1',
+     'Desc' => '充值抽奖',
+     'Pstatus' => '1',
+     'PID' => '4',
+  )),
+  1 => 
+  stdClass::__set_state(array(
+     'Photo' => 'http://www.yungoucms.com/uploads/image/20160126/1453789424.png',
+     'Name' => '签到',
+     'Author' => 'gao1631351268671@163.com',
+     'Version' => '签到',
+     'Money' => '0.00',
+     'Free' => '1',
+     'Desc' => '签到',
+     'Pstatus' => '1',
+     'PID' => '5',
+  )),
+)result_array (
+  0 => 
+  array (
+    'Photo' => 'http://www.yungoucms.com/uploads/image/20160125/1453717923.png',
+    'Name' => '充值抽奖',
+    'Author' => 'gao1631351268671@163.com',
+    'Version' => '充值抽奖',
+    'Money' => '0.00',
+    'Free' => '1',
+    'Desc' => '充值抽奖',
+    'Pstatus' => '1',
+    'PID' => '4',
+  ),
+  1 => 
+  array (
+    'Photo' => 'http://www.yungoucms.com/uploads/image/20160126/1453789424.png',
+    'Name' => '签到',
+    'Author' => 'gao1631351268671@163.com',
+    'Version' => '签到',
+    'Money' => '0.00',
+    'Free' => '1',
+    'Desc' => '签到',
+    'Pstatus' => '1',
+    'PID' => '5',
+  ),
+)result_array (
+  0 => 
+  stdClass::__set_state(array(
+     'Photo' => 'http://www.yungoucms.com/uploads/image/20160125/1453717923.png',
+     'Name' => '充值抽奖',
+     'Author' => 'gao1631351268671@163.com',
+     'Version' => '充值抽奖',
+     'Money' => '0.00',
+     'Free' => '1',
+     'Desc' => '充值抽奖',
+     'Pstatus' => '1',
+     'PID' => '4',
+  )),
+  1 => 
+  stdClass::__set_state(array(
+     'Photo' => 'http://www.yungoucms.com/uploads/image/20160126/1453789424.png',
+     'Name' => '签到',
+     'Author' => 'gao1631351268671@163.com',
+     'Version' => '签到',
+     'Money' => '0.00',
+     'Free' => '1',
+     'Desc' => '签到',
+     'Pstatus' => '1',
+     'PID' => '5',
+  )),
+)result_array (
+  0 => 
+  array (
+    'Photo' => 'http://www.yungoucms.com/uploads/image/20160125/1453717923.png',
+    'Name' => '充值抽奖',
+    'Author' => 'gao1631351268671@163.com',
+    'Version' => '充值抽奖',
+    'Money' => '0.00',
+    'Free' => '1',
+    'Desc' => '充值抽奖',
+    'Pstatus' => '1',
+    'PID' => '4',
+  ),
+  1 => 
+  array (
+    'Photo' => 'http://www.yungoucms.com/uploads/image/20160126/1453789424.png',
+    'Name' => '签到',
+    'Author' => 'gao1631351268671@163.com',
+    'Version' => '签到',
+    'Money' => '0.00',
+    'Free' => '1',
+    'Desc' => '签到',
+    'Pstatus' => '1',
+    'PID' => '5',
+  ),
+)
